@@ -20,4 +20,4 @@ description: Evidence requirements for Scribd incidents
 
 ✅ **LOA**
 
-[Return to Home →](/)
+[Return to Home →](../)

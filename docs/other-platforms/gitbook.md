@@ -18,4 +18,4 @@ description: Evidence requirements for GitBook incidents
 ✅ **LOA**
 - Letter of Authorization.
 
-[Return to Home →](/)
+[Return to Home →](../)

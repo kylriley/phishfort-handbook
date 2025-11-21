@@ -42,4 +42,4 @@ Search engines use bots (crawlers) to discover and index content. When a page is
 ❌ Don't expect instant removal.
 ❌ Don't bundle multiple URLs in one report.
 
-[Return to Home →](/)
+[Return to Home →](../)

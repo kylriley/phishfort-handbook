@@ -39,4 +39,4 @@ description: Evidence requirements for smishing and phone scams
 - Don't provide just phone numbers without context.
 - Don't skip description of the scam.
 
-[Return to Home →](/)
+[Return to Home →](./)

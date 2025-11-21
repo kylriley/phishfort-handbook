@@ -92,6 +92,6 @@ To file UDRP, you need:
 | **Effort** | Medium. | High. |
 | **Use Case** | Unresponsive registrar. | TM domain disputes. |
 
-[Learn about Domain Incidents →](/domain-incidents)
+[Learn about Domain Incidents →](../domain-incidents)
 
-[Return to Home →](/)
+[Return to Home →](../)

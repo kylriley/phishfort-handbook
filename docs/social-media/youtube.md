@@ -58,4 +58,4 @@ Evidence required for YouTube cases varies depending on the type of attack you a
 - Phishing/Scams: 3-7 days.
 - Complex cases: Up to 14 days.
 
-[Return to Social Media →](/social-media) | [Return to Home →](/)
+[Return to Social Media →](./) | [Return to Home →](../)

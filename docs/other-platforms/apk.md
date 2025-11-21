@@ -44,4 +44,4 @@ APK takedowns often require more back-and-forth communication as:
 - Some are distributed for device compatibility.
 - Proving infringement can be challenging.
 
-[Return to Home →](/)
+[Return to Home →](../)

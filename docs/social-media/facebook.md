@@ -14,7 +14,7 @@ When dealing with Facebook cases, it's important to obtain a direct link to the 
 ### Mandatory Evidence
 
 ✅ **Letter of Authorization (LOA)**
-- [Learn about LOA requirements →](/social-media#loa)
+- [Learn about LOA requirements →](./#loa)
 
 ✅ **URL or Screenshot of Infringement**
 - Profile URL for impersonation.
@@ -301,16 +301,16 @@ For marketplace scams using your brand:
 
 ### Facebook Ads
 For malicious ads impersonating your brand:
-[See Google Ads guide →](/other-platforms/google-ads) for similar process
+[See Google Ads guide →](../other-platforms/google-ads) for similar process
 
 ---
 
 ## Additional Resources
 
-- [Social Media Overview →](/social-media)
-- [Evidence Guidelines →](/evidence-guidelines)
-- [Fair Use Doctrine →](/legal/fair-use)
-- [Trademark & Copyright →](/legal/trademark-copyright)
-- [Bulk Reporting →](/special-cases/bulk-reporting)
+- [Social Media Overview →](./)
+- [Evidence Guidelines →](../evidence-guidelines)
+- [Fair Use Doctrine →](../legal/fair-use)
+- [Trademark & Copyright →](../legal/trademark-copyright)
+- [Bulk Reporting →](../special-cases/bulk-reporting)
 
-[Return to Social Media →](/social-media) | [Return to Home →](/)
+[Return to Social Media →](./) | [Return to Home →](../)

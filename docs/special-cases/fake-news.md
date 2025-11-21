@@ -75,4 +75,4 @@ While pursuing takedown:
 - Publish counter-evidence.
 - Pursue defamation claims if applicable.
 
-[Return to Home →](/)
+[Return to Home →](../)

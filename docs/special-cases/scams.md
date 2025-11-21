@@ -87,4 +87,4 @@ If evidence is insufficient for takedown:
 - Report to platform's fraud team.
 - Consider legal action.
 
-[Return to Home →](/)
+[Return to Home →](../)

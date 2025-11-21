@@ -15,9 +15,9 @@ These should be reported as **"Social"** incidents.
 
 ## Supported Messaging Platforms
 
-- [WhatsApp →](/messaging/whatsapp)
-- [Telegram →](/messaging/telegram)
-- [Discord →](/messaging/discord)
+- [WhatsApp →](whatsapp)
+- [Telegram →](telegram)
+- [Discord →](discord)
 
 ## General Requirements
 
@@ -28,4 +28,4 @@ All messaging platform takedowns require:
 ✅ **Screenshots** showing the infringement with timestamps
 ✅ **Context** explaining the violation
 
-[Return to Home →](/)
+[Return to Home →](../)

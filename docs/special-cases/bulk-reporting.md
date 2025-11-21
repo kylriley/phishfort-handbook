@@ -109,6 +109,6 @@ Each domain must be submitted as a separate incident.
 - Domains (not supported for bulk).
 - More than 10 URLs (split into multiple submissions).
 
-[Learn about Social Media →](/social-media)
+[Learn about Social Media →](../social-media)
 
-[Return to Home →](/)
+[Return to Home →](../)

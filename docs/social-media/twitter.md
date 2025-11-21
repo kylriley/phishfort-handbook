@@ -254,7 +254,7 @@ If they're running scams or phishing
 - How users are being harmed.
 - Links to scam posts.
 
-[Learn about alternative legal approaches →](/legal/trademark-copyright)
+[Learn about alternative legal approaches →](../legal/trademark-copyright)
 
 ---
 
@@ -298,9 +298,9 @@ If rejected:
 
 ## Related Resources
 
-- [Social Media Overview →](/social-media)
-- [Evidence Guidelines →](/evidence-guidelines#brand-impersonation)
-- [Trademark & Copyright →](/legal/trademark-copyright)
-- [Fair Use Doctrine →](/legal/fair-use)
+- [Social Media Overview →](./)
+- [Evidence Guidelines →](../evidence-guidelines#brand-impersonation)
+- [Trademark & Copyright →](../legal/trademark-copyright)
+- [Fair Use Doctrine →](../legal/fair-use)
 
-[Return to Social Media →](/social-media) | [Return to Home →](/)
+[Return to Social Media →](./) | [Return to Home →](../)

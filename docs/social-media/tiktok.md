@@ -59,4 +59,4 @@ TikTok does NOT take down profiles based solely on:
 ❌ Don't submit without LOA.
 ❌ Don't submit without legitimate profile link.
 
-[Return to Social Media →](/social-media) | [Return to Home →](/)
+[Return to Social Media →](./) | [Return to Home →](../)

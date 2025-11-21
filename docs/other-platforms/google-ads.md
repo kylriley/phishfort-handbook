@@ -34,4 +34,4 @@ PhishFort can carry out takedowns for malicious ads and landing pages.
 ✅ Show how users could be confused.
 ✅ Provide geo-location if ad is region-specific.
 
-[Return to Home →](/)
+[Return to Home →](../)

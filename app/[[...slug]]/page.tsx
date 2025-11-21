@@ -69,57 +69,74 @@ export async function generateStaticParams() {
   return allFiles.map(slug => ({ slug }));
 }
 
-export default function Page({ params }: { params: { slug?: string[] } }) {
-  const slug = params.slug || [];
-  const filePath = getDocPath(slug);
-  
-  if (!filePath) {
+export default async function Page({ params }: { params: Promise<{ slug?: string[] }> | { slug?: string[] } }) {
+  try {
+    // Handle both Promise and direct params for Next.js compatibility
+    const resolvedParams = params instanceof Promise ? await params : params;
+    const slug = resolvedParams.slug || [];
+    const filePath = getDocPath(slug);
+    
+    if (!filePath) {
+      return (
+        <div className="prose max-w-4xl mx-auto">
+          <h1>Page Not Found</h1>
+          <p>The requested page could not be found.</p>
+        </div>
+      );
+    }
+    
+    const source = fs.readFileSync(filePath, 'utf-8');
+    const ast = Markdoc.parse(source);
+    const content = Markdoc.transform(ast, {
+      tags: {
+        callout: {
+          render: 'Callout',
+          attributes: {
+            type: {
+              type: String,
+              default: 'note',
+            },
+          },
+        },
+        card: {
+          render: 'Card',
+          attributes: {
+            title: { type: String },
+            href: { type: String },
+          },
+        },
+        grid: {
+          render: 'Grid',
+          attributes: {
+            cols: { type: String, default: '2' },
+          },
+        },
+        br: {
+          render: 'br',
+          selfClosing: true,
+        },
+      },
+    });
+    
+    const reactNode = Markdoc.renderers.react(content, React, { components });
+    
     return (
       <div className="prose max-w-4xl mx-auto">
-        <h1>Page Not Found</h1>
-        <p>The requested page could not be found.</p>
+        {reactNode}
+      </div>
+    );
+  } catch (error) {
+    console.error('Error rendering page:', error);
+    return (
+      <div className="prose max-w-4xl mx-auto">
+        <h1>Error Loading Page</h1>
+        <p>An error occurred while loading this page. Please try again later.</p>
+        {process.env.NODE_ENV === 'development' && (
+          <pre className="text-xs bg-red-50 p-4 rounded mt-4">
+            {error instanceof Error ? error.message : String(error)}
+          </pre>
+        )}
       </div>
     );
   }
-  
-  const source = fs.readFileSync(filePath, 'utf-8');
-  const ast = Markdoc.parse(source);
-  const content = Markdoc.transform(ast, {
-    tags: {
-      callout: {
-        render: 'Callout',
-        attributes: {
-          type: {
-            type: String,
-            default: 'note',
-          },
-        },
-      },
-      card: {
-        render: 'Card',
-        attributes: {
-          title: { type: String },
-          href: { type: String },
-        },
-      },
-      grid: {
-        render: 'Grid',
-        attributes: {
-          cols: { type: String, default: '2' },
-        },
-      },
-      br: {
-        render: 'br',
-        selfClosing: true,
-      },
-    },
-  });
-  
-  const reactNode = Markdoc.renderers.react(content, React, { components });
-  
-  return (
-    <div className="prose max-w-4xl mx-auto">
-      {reactNode}
-    </div>
-  );
 }

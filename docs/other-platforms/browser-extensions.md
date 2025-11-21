@@ -28,4 +28,4 @@ Such as:
 ✅ Document user complaints or confusion.
 ✅ Include store listing URL.
 
-[Return to Home →](/)
+[Return to Home →](../)

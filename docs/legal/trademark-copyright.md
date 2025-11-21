@@ -105,6 +105,6 @@ For TM/Copyright takedowns, you need an LOA allowing PhishFort to act on your be
 - Authorization for PhishFort to submit takedowns.
 - List of domains and brands being protected.
 
-[Learn more about Fair Use →](/legal/fair-use)
+[Learn more about Fair Use →](fair-use)
 
-[Return to Home →](/)
+[Return to Home →](../)

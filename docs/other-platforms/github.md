@@ -34,4 +34,4 @@ description: Evidence requirements for GitHub incidents
 ❌ Don't report entire repositories without specifying infringing parts.
 ❌ Don't submit without clear explanation of infringement.
 
-[Return to Home →](/)
+[Return to Home →](../)

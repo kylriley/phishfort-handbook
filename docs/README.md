@@ -84,16 +84,19 @@ Headings can be given custom IDs for linking:
 
 Link to it:
 ```markdoc
-[Link text](/page#my-section)
+[Link text](page#my-section)
 ```
 
 ### Internal Cross-References
 
 All internal links use relative paths:
-- `/` - Root index
-- `/getting-started` - Top-level page
-- `/social-media/facebook` - Nested page
-- `/legal/fair-use#key-section` - With anchor
+- `./` or `../` - Root index (depending on current location)
+- `getting-started` - Top-level page from root
+- `../getting-started` - Top-level page from subdirectory
+- `social-media/facebook` - Nested page from root
+- `../social-media/facebook` - Nested page from another subdirectory
+- `legal/fair-use#key-section` - With anchor from root
+- `../legal/fair-use#key-section` - With anchor from subdirectory
 
 ## Setting Up Markdoc
 

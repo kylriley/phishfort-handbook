@@ -60,4 +60,4 @@ Telegram operates with a very loose enforcement mandate, which our team continuo
 - ❌ Don't rely on brand name alone.
 - ❌ Don't submit without clear malicious intent.
 
-[Return to Messaging →](/messaging) | [Return to Home →](/)
+[Return to Messaging →](./) | [Return to Home →](../)

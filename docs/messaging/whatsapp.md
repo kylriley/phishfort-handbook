@@ -39,4 +39,4 @@ description: Evidence requirements for WhatsApp incidents
 **Important**: Screenshots showing group member lists or participant details do not necessarily strengthen the case if the rest of the evidence is not provided.
 {% /callout %}
 
-[Return to Messaging →](/messaging) | [Return to Home →](/)
+[Return to Messaging →](./) | [Return to Home →](../)

@@ -115,6 +115,6 @@ Understanding what is or isn't covered by Fair Use is a **collaborative process*
 We will always strive to act on your requests. However, if there is no evidence of infringement, we will explain why and ask for additional evidence.
 {% /callout %}
 
-[Learn about Trademark & Copyright →](/legal/trademark-copyright)
+[Learn about Trademark & Copyright →](trademark-copyright)
 
-[Return to Home →](/)
+[Return to Home →](../)

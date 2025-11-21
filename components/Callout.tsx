@@ -6,6 +6,11 @@ interface CalloutProps {
 }
 
 export function Callout({ type = 'note', children }: CalloutProps) {
+  // Ensure type is valid
+  const validType = (type && ['note', 'warning', 'danger', 'tip', 'check'].includes(type)) 
+    ? type 
+    : 'note';
+  
   const styles = {
     note: {
       container: 'bg-blue-50 border-blue-500 text-blue-900',
@@ -34,7 +39,7 @@ export function Callout({ type = 'note', children }: CalloutProps) {
     }
   };
 
-  const style = styles[type];
+  const style = styles[validType];
 
   return (
     <div className={`border-l-4 p-4 my-4 rounded ${style.container}`}>

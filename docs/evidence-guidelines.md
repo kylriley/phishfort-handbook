@@ -34,7 +34,7 @@ Understanding what constitutes strong evidence versus counter-evidence is crucia
 TM/CR infringements are **not** part of brand impersonation (as impersonation is malicious and more powerful evidence). In summary, trademark and copyright infringements include all uses that are not "fair" or "nominative" use.
 
 {% callout type="note" %}
-Learn more about [Fair Use Doctrine](/legal/fair-use) and [Trademark & Copyright](/legal/trademark-copyright)
+Learn more about [Fair Use Doctrine](legal/fair-use) and [Trademark & Copyright](legal/trademark-copyright)
 {% /callout %}
 
 ### Fair Trademark Usage
@@ -63,7 +63,7 @@ For **nominative trademark usage**, the following elements must be present:
 ## Trademark Infringement Examples
 
 {% callout type="warning" %}
-Similar domains not covered by TM may require UDRP proceedings for exact TM matches. [Learn about UDRP →](/legal/icann-udrp)
+Similar domains not covered by TM may require UDRP proceedings for exact TM matches. [Learn about UDRP →](legal/icann-udrp)
 {% /callout %}
 
 | ✅ Strong Evidence | ❌ Not Actionable / Counter Evidence |
@@ -130,20 +130,20 @@ When submitting a takedown request, ensure you include:
 Different incident types require different evidence. See the detailed guides for each:
 
 ### By Platform Type
-- [Domain Incidents →](/domain-incidents)
-- [Social Media →](/social-media)
-- [Email Attacks →](/email-attacks)
-- [Messaging Platforms →](/messaging)
+- [Domain Incidents →](domain-incidents)
+- [Social Media →](social-media)
+- [Email Attacks →](email-attacks)
+- [Messaging Platforms →](messaging)
 
 ### By Attack Vector
-- [Phone Attacks →](/phone-attacks)
-- [APK Cases →](/other-platforms/apk)
-- [Browser Extensions →](/other-platforms/browser-extensions)
+- [Phone Attacks →](phone-attacks)
+- [APK Cases →](other-platforms/apk)
+- [Browser Extensions →](other-platforms/browser-extensions)
 
 ### Legal Frameworks
-- [Fair Use Doctrine →](/legal/fair-use)
-- [Trademark & Copyright →](/legal/trademark-copyright)
-- [ICANN & UDRP →](/legal/icann-udrp)
+- [Fair Use Doctrine →](legal/fair-use)
+- [Trademark & Copyright →](legal/trademark-copyright)
+- [ICANN & UDRP →](legal/icann-udrp)
 
 ---
 
@@ -151,4 +151,4 @@ Different incident types require different evidence. See the detailed guides for
 
 If you're unsure whether your case qualifies for takedown, our analysts will evaluate the evidence and work with you to build the strongest possible case. It's better to submit with available evidence and let us guide you than to delay reporting.
 
-[Return to Home →](/) | [View Getting Started Guide →](/getting-started)
+[Return to Home →](./) | [View Getting Started Guide →](getting-started)

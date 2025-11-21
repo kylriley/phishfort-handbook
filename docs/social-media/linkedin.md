@@ -75,4 +75,4 @@ Highlight how the profile/page is:
 - Complex cases may take longer.
 - Appeals can add 7-10 days.
 
-[Return to Social Media →](/social-media) | [Return to Home →](/)
+[Return to Social Media →](./) | [Return to Home →](../)

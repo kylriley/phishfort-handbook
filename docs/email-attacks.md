@@ -100,7 +100,7 @@ The attacker registered a domain specifically for the attack.
 - Screenshots of the email.
 - Context about the phishing attempt.
 
-[Also report as Domain Incident →](/domain-incidents)
+[Also report as Domain Incident →](domain-incidents)
 
 ---
 
@@ -227,7 +227,7 @@ The LOA should include:
 - Authorization for PhishFort to submit takedown requests.
 - List of domains and brands being protected.
 
-[Learn more about LOA requirements →](/legal/trademark-copyright)
+[Learn more about LOA requirements →](legal/trademark-copyright)
 
 ---
 
@@ -235,10 +235,10 @@ The LOA should include:
 
 Email attacks often occur alongside other attack vectors:
 
-- **Domains used in emails**: [Domain Incidents →](/domain-incidents)
-- **Phishing pages linked in emails**: [Domain Incidents →](/domain-incidents)
-- **Social media impersonation**: [Social Media →](/social-media)
-- **Phone number in email**: [Phone Attacks →](/phone-attacks)
+- **Domains used in emails**: [Domain Incidents →](domain-incidents)
+- **Phishing pages linked in emails**: [Domain Incidents →](domain-incidents)
+- **Social media impersonation**: [Social Media →](social-media)
+- **Phone number in email**: [Phone Attacks →](phone-attacks)
 
 ---
 
@@ -248,7 +248,7 @@ If you're having trouble extracting email headers or aren't sure what informatio
 
 ### Quick Links
 
-- [Evidence Guidelines →](/evidence-guidelines)
-- [Domain Incidents →](/domain-incidents)
-- [Getting Started →](/getting-started)
-- [Return to Home →](/)
+- [Evidence Guidelines →](evidence-guidelines)
+- [Domain Incidents →](domain-incidents)
+- [Getting Started →](getting-started)
+- [Return to Home →](./)

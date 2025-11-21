@@ -48,4 +48,4 @@ Cases involving **malware** or **NSFW material** demand heightened attention.
 Please clearly flag these cases when reporting so our analysts can prioritize and handle appropriately.
 {% /callout %}
 
-[Return to Home →](/)
+[Return to Home →](../)

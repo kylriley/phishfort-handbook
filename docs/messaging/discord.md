@@ -48,4 +48,4 @@ Where:
 **Important**: You **must be part of the server** to collect the necessary details. Ensure your access is active to retrieve the message links and IDs.
 {% /callout %}
 
-[Return to Messaging →](/messaging) | [Return to Home →](/)
+[Return to Messaging →](./) | [Return to Home →](../)

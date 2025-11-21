@@ -55,7 +55,7 @@ These cases cannot be taken down **without additional signs of malicious activit
 - **Parked domains with typosquat** - Not being used for fraudulent activities or trademark infringement. PhishFort can monitor these domains to act accordingly if content is uploaded. Some registrars may agree to turn off parked pages if typosquat is not generic.
 - **Tutorial websites** - Sites that clearly state they are not related to the customer and provide guides to earn from ads (considered legal activity).
 - **Genuine product sales** - Websites selling clients' products that are genuine/original and comply with the First Sale Doctrine.
-- **Fair Use content** - All content in social media and websites that falls under the [Fair Use doctrine](/legal/fair-use).
+- **Fair Use content** - All content in social media and websites that falls under the [Fair Use doctrine](legal/fair-use).
 - **Non-violating platform content** - Content that does not violate social media platform policies, even if somewhat harmful to the brand.
 - **Legitimate businesses** - Legit businesses with Trademark or Copyright disputes.
 - **Doxxing cases** - Not typically actionable through standard takedown processes.
@@ -84,13 +84,13 @@ We will perform takedowns for:
 
 All domains with phishing content are susceptible to being taken down. However, domains with typosquatting alone are usually not taken down by Registrars as the website must contain malicious content or brand abuse to qualify.
 
-[Learn more about Domain Incidents →](/domain-incidents)
+[Learn more about Domain Incidents →](domain-incidents)
 
 **Emails**
 
 We can facilitate the takedown of email addresses involved in any type of cyber attack or malicious activity, effectively disrupting their use and mitigating potential harm.
 
-[Learn more about Email Attacks →](/email-attacks)
+[Learn more about Email Attacks →](email-attacks)
 
 **Social Media & Messaging Platforms**
 
@@ -101,40 +101,40 @@ We can report and take down accounts with different types of infringements:
 
 Each platform's policies will determine what can or cannot be taken down. Our analysts are specialists in social media policies and will decide on the best approach for each case.
 
-[Learn more about Social Media →](/social-media) | [Learn more about Messaging Apps →](/messaging)
+[Learn more about Social Media →](social-media) | [Learn more about Messaging Apps →](messaging)
 
 **Phone Numbers**
 
 We can execute takedowns of phone numbers involved in smishing/phishing over SMS cases.
 
-[Learn more about Phone Attacks →](/phone-attacks)
+[Learn more about Phone Attacks →](phone-attacks)
 
 **IP Infrastructure**
 
 We execute takedowns of infrastructure that hosts infringing content, working to remove unauthorized material and safeguard intellectual property while ensuring compliance with legal and regulatory standards.
 
-[Learn more about IP Reporting →](/other-platforms/ip-reporting)
+[Learn more about IP Reporting →](other-platforms/ip-reporting)
 
 **Third-Party Apps**
 
 We can remove copies of legitimate apps, adware, mobile malware, or mobile app brand abuse.
 
-[Learn more about APK Cases →](/other-platforms/apk) | [Learn more about Browser Extensions →](/other-platforms/browser-extensions)
+[Learn more about APK Cases →](other-platforms/apk) | [Learn more about Browser Extensions →](other-platforms/browser-extensions)
 
 **Other Platforms**
 
 Anything that violates the policies of a specific platform and is related to protecting the brand can be attempted as part of a takedown.
 
-[Explore Other Platforms →](/other-platforms/github)
+[Explore Other Platforms →](other-platforms/github)
 
 ---
 
 ## Next Steps
 
-Now that you understand what can and cannot be taken down, review the [Evidence Guidelines](/evidence-guidelines) to learn what makes evidence stronger and more actionable.
+Now that you understand what can and cannot be taken down, review the [Evidence Guidelines](evidence-guidelines) to learn what makes evidence stronger and more actionable.
 
 Or jump directly to a specific incident type:
-- [Domain Incidents](/domain-incidents)
-- [Social Media](/social-media)
-- [Email Attacks](/email-attacks)
-- [Messaging Platforms](/messaging)
+- [Domain Incidents](domain-incidents)
+- [Social Media](social-media)
+- [Email Attacks](email-attacks)
+- [Messaging Platforms](messaging)

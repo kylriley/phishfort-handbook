@@ -73,7 +73,7 @@ This occurs when the domain **pretends to be** the victim's brand, for example, 
 - ✅ Context about how users might be confused.
 
 {% callout type="note" %}
-See [Evidence Guidelines](/evidence-guidelines#brand-impersonation) for what constitutes strong impersonation evidence vs. mere brand mention.
+See [Evidence Guidelines](evidence-guidelines#brand-impersonation) for what constitutes strong impersonation evidence vs. mere brand mention.
 {% /callout %}
 
 ---
@@ -93,7 +93,7 @@ Example: `supportbrand@gmail.com`
 **Takedown target**: The account (through the platform, e.g., Gmail)
 
 #### Evidence Required:
-- ✅ **Email headers** (mandatory) - [See Email Attacks guide →](/email-attacks).
+- ✅ **Email headers** (mandatory) - [See Email Attacks guide →](email-attacks).
 - ✅ Screenshots of the email (optional but helpful).
 
 {% callout type="warning" %}
@@ -120,7 +120,7 @@ Typosquats alone are **aggravating factors** in impersonation cases, but typosqu
 - Parked pages with no content.
 - Generic word combinations.
 - Legitimate business with historic footprint.
-- [Fair use](/legal/fair-use) scenarios.
+- [Fair use](legal/fair-use) scenarios.
 
 ---
 
@@ -145,13 +145,13 @@ If a domain registrar is unresponsive, cases can be escalated to **ICANN** (Inte
 - ICANN contacts registrar **up to 3 times**.
 - **15 days** wait after each communication.
 - Total resolution time: **~1 month average**.
-- If unsuccessful, consider [UDRP](/legal/icann-udrp) or legal action.
+- If unsuccessful, consider [UDRP](legal/icann-udrp) or legal action.
 
 {% callout type="warning" %}
 **Last Resort**: ICANN escalations should be used as a last resort when standard takedown processes fail.
 {% /callout %}
 
-[Learn more about ICANN & UDRP →](/legal/icann-udrp)
+[Learn more about ICANN & UDRP →](legal/icann-udrp)
 
 ---
 
@@ -167,7 +167,7 @@ For cases involving trademark disputes over domain names, UDRP proceedings may b
 - Timeline: 14-30 days.
 - Requires proof of bad faith registration or unfair usage.
 
-[Learn more about UDRP →](/legal/icann-udrp)
+[Learn more about UDRP →](legal/icann-udrp)
 
 ---
 
@@ -175,19 +175,19 @@ For cases involving trademark disputes over domain names, UDRP proceedings may b
 
 Not sure if your case is a domain incident? Here are related incident types:
 
-- **Email-based attacks**: [Email Attacks →](/email-attacks)
-- **Social media impersonation**: [Social Media →](/social-media)
-- **Malicious apps**: [APK Cases →](/other-platforms/apk)
-- **Search results**: [Search Engines →](/other-platforms/search-engines)
-- **Ads impersonation**: [Google Ads →](/other-platforms/google-ads)
+- **Email-based attacks**: [Email Attacks →](email-attacks)
+- **Social media impersonation**: [Social Media →](social-media)
+- **Malicious apps**: [APK Cases →](other-platforms/apk)
+- **Search results**: [Search Engines →](other-platforms/search-engines)
+- **Ads impersonation**: [Google Ads →](other-platforms/google-ads)
 
 ---
 
 ## Related Resources
 
-- [Evidence Guidelines →](/evidence-guidelines)
-- [Trademark & Copyright →](/legal/trademark-copyright)
-- [Fair Use Doctrine →](/legal/fair-use)
-- [ICANN & UDRP →](/legal/icann-udrp)
+- [Evidence Guidelines →](evidence-guidelines)
+- [Trademark & Copyright →](legal/trademark-copyright)
+- [Fair Use Doctrine →](legal/fair-use)
+- [ICANN & UDRP →](legal/icann-udrp)
 
-[Return to Home →](/)
+[Return to Home →](./)

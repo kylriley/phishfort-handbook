@@ -105,7 +105,7 @@ Evidence varies by attack type: phishing, scams, DMCA, or trademark infringement
 - Former employees.
 - Similar business names (when brand is generic).
 
-[Learn more about impersonation evidence →](/evidence-guidelines#brand-impersonation)
+[Learn more about impersonation evidence →](../evidence-guidelines#brand-impersonation)
 
 ---
 
@@ -117,7 +117,7 @@ Evidence varies by attack type: phishing, scams, DMCA, or trademark infringement
 - Confusingly similar branding.
 
 **What Doesn't Qualify**:
-- [Fair use](/legal/fair-use) scenarios (reviews, commentary, parody).
+- [Fair use](../legal/fair-use) scenarios (reviews, commentary, parody).
 - Legitimate resellers/distributors.
 - Compatibility claims.
 
@@ -135,7 +135,7 @@ Evidence varies by attack type: phishing, scams, DMCA, or trademark infringement
 - User-generated content with transformative use.
 - Licensed content.
 
-[Learn more about Copyright →](/legal/trademark-copyright)
+[Learn more about Copyright →](../legal/trademark-copyright)
 
 ---
 
@@ -233,27 +233,27 @@ For certain platforms, we support bulk reporting (up to 10 URLs):
 - Teachable.
 - Telegram.
 
-[Learn more about Bulk Reporting →](/special-cases/bulk-reporting)
+[Learn more about Bulk Reporting →](../special-cases/bulk-reporting)
 
 ---
 
 ## Related Resources
 
 ### Evidence & Legal
-- [Evidence Guidelines →](/evidence-guidelines)
-- [Fair Use Doctrine →](/legal/fair-use)
-- [Trademark & Copyright →](/legal/trademark-copyright)
+- [Evidence Guidelines →](../evidence-guidelines)
+- [Fair Use Doctrine →](../legal/fair-use)
+- [Trademark & Copyright →](../legal/trademark-copyright)
 
 ### Other Incident Types
-- [Messaging Platforms →](/messaging)
-- [Domain Incidents →](/domain-incidents)
-- [Email Attacks →](/email-attacks)
+- [Messaging Platforms →](../messaging)
+- [Domain Incidents →](../domain-incidents)
+- [Email Attacks →](../email-attacks)
 
 ### Platform-Specific Guides
-- [Facebook →](/social-media/facebook)
-- [Twitter/X →](/social-media/twitter)
-- [TikTok →](/social-media/tiktok)
-- [LinkedIn →](/social-media/linkedin)
-- [YouTube →](/social-media/youtube)
+- [Facebook →](facebook)
+- [Twitter/X →](twitter)
+- [TikTok →](tiktok)
+- [LinkedIn →](linkedin)
+- [YouTube →](youtube)
 
-[Return to Home →](/)
+[Return to Home →](../)
