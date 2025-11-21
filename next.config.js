@@ -8,5 +8,5 @@ module.exports = withMarkdoc()({
   },
   // If deploying to a repository (e.g., username.github.io/repo-name),
   // uncomment and set the basePath:
-  // basePath: '/repo-name',
+  basePath: '/phishfort-handbook',
 });
