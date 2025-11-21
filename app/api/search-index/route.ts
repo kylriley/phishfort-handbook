@@ -7,6 +7,7 @@ interface SearchDocument {
   title: string;
   href: string;
   excerpt: string;
+  content: string;
 }
 
 function getAllMarkdownFiles(dir: string, baseDir: string = dir): string[] {
@@ -85,16 +86,20 @@ export async function GET() {
         .replace(/^index$/, '');
 
       // Extract text content
-      const content = source.replace(/^---[\s\S]*?---/, '').trim();
-      const text = extractTextFromMarkdoc(content);
+      const markdownContent = source.replace(/^---[\s\S]*?---/, '').trim();
+      const text = extractTextFromMarkdoc(markdownContent);
 
       // Create excerpt (first 200 characters)
       const excerpt = text.substring(0, 200) + (text.length > 200 ? '...' : '');
+
+      // Include more content for search (first 2000 characters)
+      const searchContent = text.substring(0, 2000);
 
       searchDocuments.push({
         title: title || 'Untitled',
         href,
         excerpt,
+        content: searchContent,
       });
     }
 

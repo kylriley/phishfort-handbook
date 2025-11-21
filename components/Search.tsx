@@ -8,6 +8,7 @@ interface SearchResult {
   title: string;
   href: string;
   excerpt: string;
+  content: string;
 }
 
 export function Search() {
@@ -21,8 +22,10 @@ export function Search() {
   // Initialize search index
   useEffect(() => {
     const searchIndex = new FlexSearch.Index({
-      tokenize: 'forward',
+      tokenize: 'full',
       cache: true,
+      resolution: 9,
+      context: true
     });
 
     // Fetch search index data
@@ -30,7 +33,7 @@ export function Search() {
       .then(res => res.json())
       .then(data => {
         data.forEach((doc: SearchResult, idx: number) => {
-          searchIndex.add(idx, `${doc.title} ${doc.excerpt}`);
+          searchIndex.add(idx, `${doc.title} ${doc.content}`);
         });
         setIndex(searchIndex);
         setDocuments(data);
@@ -48,8 +51,11 @@ export function Search() {
       return;
     }
 
-    const searchResults = index.search(searchQuery, { limit: 10 });
-    const resultDocs = searchResults.map((idx: number) => documents[idx]);
+    const searchResults = index.search(searchQuery, {
+      limit: 15,
+      suggest: true
+    });
+    const resultDocs = searchResults.map((idx: number) => documents[idx]).filter(Boolean);
     setResults(resultDocs);
     setIsOpen(true);
   }, [index, documents]);
@@ -90,7 +96,7 @@ export function Search() {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => query && setIsOpen(true)}
           placeholder="Search documentation... (⌘K)"
-          className="w-full px-4 py-2 pl-10 pr-4 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent shadow-sm"
+          className="w-full px-4 py-2 pl-10 pr-4 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent shadow-sm placeholder:text-gray-500"
         />
         <svg
           className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
