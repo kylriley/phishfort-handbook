@@ -10,8 +10,8 @@ Welcome to the PhishFort Reporting Handbook. This guide will help you submit com
 ## Quick Start
 
 **New to reporting incidents?**
-- Start with [Getting Started](/getting-started) to understand what can be taken down and why complete reports matter.
-- Review [Evidence Guidelines](/evidence-guidelines) to learn what makes evidence stronger and more actionable.
+- Start with [Getting Started](getting-started) to understand what can be taken down and why complete reports matter.
+- Review [Evidence Guidelines](evidence-guidelines) to learn what makes evidence stronger and more actionable.
 
 **Know your incident type?**
 - Jump directly to the relevant section in the Documentation Structure below.
