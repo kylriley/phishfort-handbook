@@ -93,9 +93,9 @@ function MobileSearch({
 
       {/* Full Screen Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-[10001] bg-slate-900">
+        <div className="fixed inset-0 z-[10001] flex flex-col bg-white">
           {/* Header with search input */}
-          <div className="bg-primary-800 px-4 py-3 shadow-lg">
+          <div className="flex-shrink-0 bg-primary-800 px-4 py-3 shadow-lg">
             <div className="flex items-center gap-3">
               <div className="relative flex-1">
                 <input
@@ -125,7 +125,7 @@ function MobileSearch({
           </div>
 
           {/* Results Area */}
-          <div className="flex-1 overflow-y-auto bg-white" style={{ height: 'calc(100vh - 70px)' }}>
+          <div className="flex-1 overflow-y-auto bg-white">
             {/* Loading State */}
             {!isReady && !hasError && (
               <div className="flex flex-col items-center justify-center py-16 px-4">
