@@ -9,7 +9,11 @@ module.exports = withMarkdoc()({
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdoc'],
   output: 'export',
   basePath: basePath,
+  assetPrefix: basePath,
   images: {
     unoptimized: true
+  },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 });

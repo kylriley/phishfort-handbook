@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: 'Guide to effective takedowns and evidence collection',
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function RootLayout({
   children,
 }: {
@@ -25,7 +27,7 @@ export default function RootLayout({
               <div className="flex items-center gap-3">
                 {/* PhishFort Logo */}
                 <Image
-                  src="/pf-logo.png"
+                  src={`${basePath}/pf-logo.png`}
                   alt="PhishFort Logo"
                   width={120}
                   height={40}
