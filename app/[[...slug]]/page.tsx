@@ -191,9 +191,45 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       return <HeadingTag id={id} {...props}>{children}</HeadingTag>;
     }
 
+    // Helper to add break opportunities after "/" characters
+    const addBreakOpportunities = (children: React.ReactNode): React.ReactNode => {
+      if (typeof children === 'string') {
+        // Insert zero-width space after "/" for line break opportunities
+        const parts = children.split('/');
+        return parts.map((part, i) => (
+          <React.Fragment key={i}>
+            {part}
+            {i < parts.length - 1 && <><span>/</span><wbr /></>}
+          </React.Fragment>
+        ));
+      }
+      if (Array.isArray(children)) {
+        return children.map((child, i) => (
+          <React.Fragment key={i}>{addBreakOpportunities(child)}</React.Fragment>
+        ));
+      }
+      if (React.isValidElement(children) && children.props?.children) {
+        return React.cloneElement(children, {
+          ...children.props,
+          children: addBreakOpportunities(children.props.children),
+        });
+      }
+      return children;
+    };
+
+    // Custom table cell components with break opportunities
+    const Td = ({ children, ...props }: { children: React.ReactNode }) => (
+      <td {...props}>{addBreakOpportunities(children)}</td>
+    );
+    const Th = ({ children, ...props }: { children: React.ReactNode }) => (
+      <th {...props}>{addBreakOpportunities(children)}</th>
+    );
+
     const componentsWithHeading = {
       ...components,
       Heading,
+      td: Td,
+      th: Th,
     };
 
     const reactNode = Markdoc.renderers.react(content, React, { components: componentsWithHeading });

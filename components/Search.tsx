@@ -11,6 +11,8 @@ interface SearchResult {
   content: string;
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -34,7 +36,7 @@ export function Search() {
     });
 
     // Fetch search index data
-    fetch('/api/search-index')
+    fetch(`${basePath}/search-index.json`)
       .then(res => res.json())
       .then(data => {
         data.forEach((doc: SearchResult, idx: number) => {

@@ -48,15 +48,24 @@
   }
 
   table {
-    @apply w-full border-collapse mb-4 rounded-lg overflow-hidden;
+    @apply w-full border-collapse mb-4 rounded-lg overflow-hidden text-sm md:text-base;
   }
 
   th {
-    @apply bg-primary-50 border border-primary-100 px-4 py-3 text-left font-semibold text-primary-800;
+    @apply bg-primary-50 border border-primary-100 px-2 py-2 md:px-4 md:py-3 text-left font-semibold text-primary-800;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   td {
-    @apply border border-gray-200 px-4 py-3 bg-white;
+    @apply border border-gray-200 px-2 py-2 md:px-4 md:py-3 bg-white;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  /* Allow breaking at / characters by inserting zero-width space after them */
+  td, th {
+    word-wrap: break-word;
   }
 
   code {

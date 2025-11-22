@@ -81,7 +81,7 @@ export async function GET() {
       const relativePath = path.relative(docsDir, filePath);
       let href = '/' + relativePath
         .replace(/\\/g, '/')
-        .replace(/\.mdoc?$/, '')
+        .replace(/\.(md|mdoc)$/, '')
         .replace(/\/index$/, '')
         .replace(/^index$/, '');
 
