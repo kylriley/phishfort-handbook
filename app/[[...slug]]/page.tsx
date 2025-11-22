@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     const ast = Markdoc.parse(source);
     
     // Add IDs to h2 headings
-    function addHeadingIds(node: any): any {
+    const addHeadingIds = (node: any): any => {
       if (!node) return node;
       
       if (node.type === 'heading' && node.attributes?.level === 2) {
@@ -127,7 +127,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       return node;
     }
     
-    function extractHeadingText(node: any): string {
+    const extractHeadingText = (node: any): string => {
       if (typeof node === 'string') {
         return node;
       }
@@ -186,7 +186,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     });
     
     // Custom Heading component to ensure IDs are set
-    function Heading({ level, id, children, ...props }: { level: number; id?: string; children: React.ReactNode }) {
+    const Heading = ({ level, id, children, ...props }: { level: number; id?: string; children: React.ReactNode }) => {
       const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
       return <HeadingTag id={id} {...props}>{children}</HeadingTag>;
     }

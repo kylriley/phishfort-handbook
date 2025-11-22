@@ -18,7 +18,7 @@ export function extractHeadings(filePath: string): Heading[] {
     
     const headings: Heading[] = [];
     
-    function traverse(node: any) {
+    const traverse = (node: any) => {
       if (!node) return;
       
       // Look for h2 headings (heading nodes with level 2)
