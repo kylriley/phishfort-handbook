@@ -87,7 +87,65 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     
     const source = fs.readFileSync(filePath, 'utf-8');
     const ast = Markdoc.parse(source);
-    const content = Markdoc.transform(ast, {
+    
+    // Add IDs to h2 headings
+    function addHeadingIds(node: any): any {
+      if (!node) return node;
+      
+      if (node.type === 'heading' && node.attributes?.level === 2) {
+        // Extract text from heading
+        const text = extractHeadingText(node);
+        if (text) {
+          // Check if there's already a custom ID
+          let hasCustomId = false;
+          if (node.children) {
+            for (const child of node.children) {
+              if (child.type === 'tag' && child.tag === 'tag' && child.attributes?.name === '#') {
+                hasCustomId = true;
+                node.attributes.id = child.attributes.value || '';
+                break;
+              }
+            }
+          }
+          
+          // Generate ID if no custom ID found
+          if (!hasCustomId) {
+            node.attributes = node.attributes || {};
+            node.attributes.id = text
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '');
+          }
+        }
+      }
+      
+      // Recursively process children
+      if (node.children && Array.isArray(node.children)) {
+        node.children = node.children.map(addHeadingIds);
+      }
+      
+      return node;
+    }
+    
+    function extractHeadingText(node: any): string {
+      if (typeof node === 'string') {
+        return node;
+      }
+      if (!node) {
+        return '';
+      }
+      if (node.type === 'text') {
+        return node.attributes?.content || '';
+      }
+      if (node.children && Array.isArray(node.children)) {
+        return node.children.map(extractHeadingText).join('').trim();
+      }
+      return '';
+    }
+    
+    const astWithIds = addHeadingIds(ast);
+    
+    const content = Markdoc.transform(astWithIds, {
       tags: {
         callout: {
           render: 'Callout',
@@ -116,9 +174,29 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
           selfClosing: true,
         },
       },
+      nodes: {
+        heading: {
+          render: 'Heading',
+          attributes: {
+            level: { type: Number, required: true },
+            id: { type: String },
+          },
+        },
+      },
     });
     
-    const reactNode = Markdoc.renderers.react(content, React, { components });
+    // Custom Heading component to ensure IDs are set
+    function Heading({ level, id, children, ...props }: { level: number; id?: string; children: React.ReactNode }) {
+      const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
+      return <HeadingTag id={id} {...props}>{children}</HeadingTag>;
+    }
+
+    const componentsWithHeading = {
+      ...components,
+      Heading,
+    };
+
+    const reactNode = Markdoc.renderers.react(content, React, { components: componentsWithHeading });
     
     return (
       <div className="prose max-w-4xl mx-auto">

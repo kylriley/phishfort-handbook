@@ -1,0 +1,1059 @@
+<html lang="en" class="__variable_f367f3 cc--lightmode"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/_next/static/css/app/layout.css?v=1763791091566" data-precedence="next_static/css/app/layout.css"><link rel="preload" as="script" fetchpriority="low" href="/_next/static/chunks/webpack.js?v=1763791091566"><script src="/_next/static/chunks/main-app.js?v=1763791091566" async=""></script><script src="/_next/static/chunks/app-pages-internals.js" async=""></script><script src="/_next/static/chunks/app/global-error.js" async=""></script><title>PhishFort | Dashboard</title><meta name="description" content="PhishFort management dashboard"><link rel="icon" href="/favicon.svg"><meta name="next-size-adjust"><script src="/_next/static/chunks/polyfills.js" nomodule=""></script><link rel="preload" href="/_next/static/media/e4af272ccee01ff0-s.p.woff2" as="font" crossorigin="" type="font/woff2"><style id="apexcharts-css">@keyframes opaque {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes resizeanim {
+
+  0%,
+  to {
+    opacity: 0
+  }
+}
+
+.apexcharts-canvas {
+  position: relative;
+  direction: ltr !important;
+  user-select: none
+}
+
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px
+}
+
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5)
+}
+
+.apexcharts-inner {
+  position: relative
+}
+
+.apexcharts-text tspan {
+  font-family: inherit
+}
+
+rect.legend-mouseover-inactive,
+.legend-mouseover-inactive rect,
+.legend-mouseover-inactive path,
+.legend-mouseover-inactive circle,
+.legend-mouseover-inactive line,
+.legend-mouseover-inactive text.apexcharts-yaxis-title-text,
+.legend-mouseover-inactive text.apexcharts-yaxis-label {
+  transition: .15s ease all;
+  opacity: .2
+}
+
+.apexcharts-legend-text {
+  padding-left: 15px;
+  margin-left: -15px;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: .15s ease all
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: .15s ease all
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, .96)
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, .8)
+}
+
+.apexcharts-tooltip * {
+  font-family: inherit
+}
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #eceff1;
+  border-bottom: 1px solid #ddd
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, .7);
+  border-bottom: 1px solid #333
+}
+
+.apexcharts-tooltip-text-goals-value,
+.apexcharts-tooltip-text-y-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: 600
+}
+
+.apexcharts-tooltip-text-goals-label:empty,
+.apexcharts-tooltip-text-goals-value:empty,
+.apexcharts-tooltip-text-y-label:empty,
+.apexcharts-tooltip-text-y-value:empty,
+.apexcharts-tooltip-text-z-value:empty,
+.apexcharts-tooltip-title:empty {
+  display: none
+}
+
+.apexcharts-tooltip-text-goals-label,
+.apexcharts-tooltip-text-goals-value {
+  padding: 6px 0 5px
+}
+
+.apexcharts-tooltip-goals-group,
+.apexcharts-tooltip-text-goals-label,
+.apexcharts-tooltip-text-goals-value {
+  display: flex
+}
+
+.apexcharts-tooltip-text-goals-label:not(:empty),
+.apexcharts-tooltip-text-goals-value:not(:empty) {
+  margin-top: -6px
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0;
+  margin-right: 10px;
+  border-radius: 50%
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active,
+.apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px
+}
+
+.apexcharts-custom-tooltip,
+.apexcharts-tooltip-box {
+  padding: 4px 8px
+}
+
+.apexcharts-tooltip-boxPlot {
+  display: flex;
+  flex-direction: column-reverse
+}
+
+.apexcharts-tooltip-box>div {
+  margin: 4px 0
+}
+
+.apexcharts-tooltip-box span.value {
+  font-weight: 700
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px
+}
+
+.apexcharts-xaxistooltip,
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #eceff1;
+  border: 1px solid #90a4ae
+}
+
+.apexcharts-xaxistooltip {
+  padding: 9px 10px;
+  transition: .15s ease all
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, .7);
+  border: 1px solid rgba(0, 0, 0, .5);
+  color: #fff
+}
+
+.apexcharts-xaxistooltip:after,
+.apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: transparent;
+  border-width: 6px;
+  margin-left: -6px
+}
+
+.apexcharts-xaxistooltip:before {
+  border-color: transparent;
+  border-width: 7px;
+  margin-left: -7px
+}
+
+.apexcharts-xaxistooltip-bottom:after,
+.apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%
+}
+
+.apexcharts-xaxistooltip-top:after,
+.apexcharts-xaxistooltip-top:before {
+  top: 100%
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #eceff1
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90a4ae
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after,
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, .5)
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #eceff1
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90a4ae
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after,
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, .5)
+}
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: .15s ease all
+}
+
+.apexcharts-yaxistooltip {
+  padding: 4px 10px
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, .7);
+  border: 1px solid rgba(0, 0, 0, .5);
+  color: #fff
+}
+
+.apexcharts-yaxistooltip:after,
+.apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none
+}
+
+.apexcharts-yaxistooltip:after {
+  border-color: transparent;
+  border-width: 6px;
+  margin-top: -6px
+}
+
+.apexcharts-yaxistooltip:before {
+  border-color: transparent;
+  border-width: 7px;
+  margin-top: -7px
+}
+
+.apexcharts-yaxistooltip-left:after,
+.apexcharts-yaxistooltip-left:before {
+  left: 100%
+}
+
+.apexcharts-yaxistooltip-right:after,
+.apexcharts-yaxistooltip-right:before {
+  right: 100%
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #eceff1
+}
+
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90a4ae
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after,
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, .5)
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #eceff1
+}
+
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90a4ae
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after,
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, .5)
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1
+}
+
+.apexcharts-yaxistooltip-hidden {
+  display: none
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: .15s ease all
+}
+
+.apexcharts-xcrosshairs.apexcharts-active,
+.apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: .15s ease all
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0
+}
+
+.apexcharts-selection-rect {
+  cursor: move
+}
+
+.svg_select_shape {
+  stroke-width: 1;
+  stroke-dasharray: 10 10;
+  stroke: black;
+  stroke-opacity: 0.1;
+  pointer-events: none;
+  fill: none;
+}
+
+.svg_select_handle {
+  stroke-width: 3;
+  stroke: black;
+  fill: none;
+}
+
+.svg_select_handle_r {
+  cursor: e-resize;
+}
+
+.svg_select_handle_l {
+  cursor: w-resize;
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+  cursor: crosshair
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-pan {
+  cursor: move
+}
+
+.apexcharts-menu-icon,
+.apexcharts-pan-icon,
+.apexcharts-reset-icon,
+.apexcharts-selection-icon,
+.apexcharts-toolbar-custom-icon,
+.apexcharts-zoom-icon,
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6e8192;
+  text-align: center
+}
+
+.apexcharts-menu-icon svg,
+.apexcharts-reset-icon svg,
+.apexcharts-zoom-icon svg,
+.apexcharts-zoomin-icon svg,
+.apexcharts-zoomout-icon svg {
+  fill: #6e8192
+}
+
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(.76)
+}
+
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomout-icon svg {
+  fill: #f3f4f5
+}
+
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg {
+  fill: #008ffb
+}
+
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg {
+  fill: #333
+}
+
+.apexcharts-menu-icon,
+.apexcharts-selection-icon {
+  position: relative
+}
+
+.apexcharts-reset-icon {
+  margin-left: 5px
+}
+
+.apexcharts-menu-icon,
+.apexcharts-reset-icon,
+.apexcharts-zoom-icon {
+  transform: scale(.85)
+}
+
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  transform: scale(.7)
+}
+
+.apexcharts-zoomout-icon {
+  margin-right: 3px
+}
+
+.apexcharts-pan-icon {
+  transform: scale(.62);
+  position: relative;
+  left: 1px;
+  top: 0
+}
+
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6e8192;
+  stroke-width: 2
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008ffb
+}
+
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0 6px 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: .15s ease all;
+  pointer-events: none
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: .15s ease all
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer
+}
+
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee
+}
+
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, .7);
+  color: #fff
+}
+
+@media screen and (min-width:768px) {
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1
+  }
+}
+
+.apexcharts-canvas .apexcharts-element-hidden,
+.apexcharts-datalabel.apexcharts-element-hidden,
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-hidden-element-shown {
+  opacity: 1;
+  transition: 0.25s ease all;
+}
+
+.apexcharts-datalabel,
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value,
+.apexcharts-datalabels,
+.apexcharts-pie-label {
+  cursor: default;
+  pointer-events: none
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease
+}
+
+.apexcharts-radialbar-label {
+  cursor: pointer;
+}
+
+.apexcharts-annotation-rect,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-gridline,
+.apexcharts-line,
+.apexcharts-point-annotation-label,
+.apexcharts-radar-series path:not(.apexcharts-marker),
+.apexcharts-radar-series polygon,
+.apexcharts-toolbar svg,
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-xaxis-annotation-label,
+.apexcharts-yaxis-annotation-label,
+.apexcharts-zoom-rect,
+.no-pointer-events {
+  pointer-events: none
+}
+
+.apexcharts-tooltip-active .apexcharts-marker {
+  transition: .15s ease all
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden
+}
+
+.contract-trigger:before,
+.resize-triggers,
+.resize-triggers>div {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.resize-triggers>div {
+  height: 100%;
+  width: 100%;
+  background: #eee;
+  overflow: auto
+}
+
+.contract-trigger:before {
+  overflow: hidden;
+  width: 200%;
+  height: 200%
+}
+
+.apexcharts-bar-goals-markers {
+  pointer-events: none
+}
+
+.apexcharts-bar-shadows {
+  pointer-events: none
+}
+
+.apexcharts-rangebar-goals-markers {
+  pointer-events: none
+}</style></head><body><main class="flex overflow-hidden"><div class="flex w-1/2 flex-col items-center justify-center gap-7" style="opacity: 1; will-change: opacity, transform; transform: none;"><div class="flex w-1/2"><img alt="Logo" loading="lazy" width="150" height="150" decoding="async" data-nimg="1" style="color:transparent" src="/PhishFort-main.svg"></div><div class="mt-10 flex w-1/2 flex-col gap-3"><p class="text-4xl font-medium tracking-tighter text-black">Log in</p><p class="font-light text-gray-700">Welcome back! Please enter your details.</p></div><!--$--><form class="w-1/2 space-y-3"><div class="space-y-2"><label class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm font-normal text-black" for=":R5pjtuqj6:-form-item">Email *</label><div class="relative flex items-center"><input class="border-input file:text-foreground focus-visible:ring-ring flex w-full rounded-md border bg-transparent shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 h-10 py-1 text-md px-3" placeholder="name@example.com" id=":R5pjtuqj6:-form-item" aria-describedby=":R5pjtuqj6:-form-item-description" aria-invalid="false" name="email" value=""></div></div><div class="space-y-2"><label class="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm font-normal text-black" for=":R9pjtuqj6:-form-item">Password *</label><div class="relative flex items-center"><input type="password" class="border-input file:text-foreground focus-visible:ring-ring flex w-full rounded-md border bg-transparent shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 h-10 px-3 py-1 text-md pl-3 pr-10" placeholder="************" id=":R9pjtuqj6:-form-item" aria-describedby=":R9pjtuqj6:-form-item-description" aria-invalid="false" name="password" value=""><div class="absolute cursor-pointer right-3"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-2xl text-gray-600" data-testid="password-toggle" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m63.998 86.004 21.998-21.998L448 426.01l-21.998 21.998zM259.34 192.09l60.57 60.57a64.07 64.07 0 0 0-60.57-60.57zm-6.68 127.82-60.57-60.57a64.07 64.07 0 0 0 60.57 60.57z"></path><path d="M256 352a96 96 0 0 1-92.6-121.34l-69.07-69.08C66.12 187.42 39.24 221.14 16 256c26.42 44 62.56 89.24 100.2 115.18C159.38 400.92 206.33 416 255.76 416A233.47 233.47 0 0 0 335 402.2l-53.61-53.6A95.84 95.84 0 0 1 256 352zm0-192a96 96 0 0 1 92.6 121.34L419.26 352c29.15-26.25 56.07-61.56 76.74-96-26.38-43.43-62.9-88.56-101.18-114.82C351.1 111.2 304.31 96 255.76 96a222.92 222.92 0 0 0-78.21 14.29l53.11 53.11A95.84 95.84 0 0 1 256 160z"></path></svg></div></div></div><div class="flex justify-end"><a class="mb-2 mt-2 text-sm font-medium text-primary-500" href="/forgot-password">Forgot Password</a></div><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-white shadow hover:ring-offset-2 hover:ring-2 hover:ring-primary-600 h-10 px-4 py-2 gap-2 w-full bg-primary-500" type="submit">Sign in</button><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-gray-200 text-gray-700 hover:ring-offset-2 hover:ring-2 hover:ring-gray-200 h-10 px-4 py-2 gap-2 w-full"><img alt="Google" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="mr-2" style="color:transparent" src="/icons/google.svg">Sign in with Google</button><button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-gray-200 text-gray-700 hover:ring-offset-2 hover:ring-2 hover:ring-gray-200 h-10 px-4 py-2 gap-2 w-full"><img alt="Microsoft" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="mr-2" style="color:transparent" src="/icons/microsoft.svg">Sign in with Microsoft</button></form><!--/$--></div><div class="flex h-screen flex-col items-center justify-center gap-7 overflow-hidden bg-gradient-to-tr from-login-gradient-from to-login-gradient-to transition-all duration-500 ease-in-out w-1/2"><div class="flex h-screen w-full flex-col items-center justify-center gap-7 transition-all duration-500 ease-in-out"><div class="animate-mask-pulse absolute inset-0 left-1/2 z-0" style="background-image: url(&quot;/hex-pattern.svg&quot;); background-size: 100%; background-repeat: repeat; mask-image: linear-gradient(45deg, black 15%, transparent 25%, transparent 75%, black 85%), radial-gradient(100px at -50px -50px, black 0%, transparent 70%); mask-composite: add;"></div><div class="relative" role="region" aria-roledescription="carousel"><div class="overflow-hidden"><div class="flex -ml-4" style="transform: translate3d(0.01px, 0px, 0px);"><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 flex flex-col items-center justify-center overflow-visible" style="transform: translate3d(0px, 0px, 0px);"><img alt="PhishFort" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="" style="color:transparent" src="/PhishFort.svg"><div class="flex flex-col items-center justify-center gap-2 rounded-lg p-4"><p class="text-2xl font-medium text-white">Brand protection just got even easier!</p><p class="w-3/5 text-center text-sm font-light text-gray-200">With our latest features, safeguarding your brand has never been more seamless or efficient.</p></div></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 flex flex-col items-center justify-center overflow-visible"><div class="relative mb-10 flex w-1/2"><div class="bg-primary-300/20 rounded-2xl p-5"><div class="rounded-2xl bg-white p-5"><div style="min-height: 295px;"><div id="apexchartstq36hm48" class="apexcharts-canvas apexchartstq36hm48 apexcharts-theme-light" style="width: 400px; height: 280px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: rgb(255, 255, 255);" width="400" height="280"><foreignObject x="0" y="0" width="400" height="280"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml" style="max-height: 140px;"></div><style type="text/css">
+      .apexcharts-flip-y {
+        transform: scaleY(-1) translateY(-100%);
+        transform-origin: top;
+        transform-box: fill-box;
+      }
+      .apexcharts-flip-x {
+        transform: scaleX(-1);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .apexcharts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .apexcharts-legend.apexcharts-legend-group-horizontal {
+        flex-direction: column;
+      }
+      .apexcharts-legend-group {
+        display: flex;
+      }
+      .apexcharts-legend-group-vertical {
+        flex-direction: column-reverse;
+      }
+      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .apexcharts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+      }
+      .apexcharts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {
+        pointer-events: none;
+      }
+      .apexcharts-legend-marker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 1px;
+      }
+
+      .apexcharts-legend-series.apexcharts-no-click {
+        cursor: auto;
+      }
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {
+        display: none !important;
+      }
+      .apexcharts-inactive-legend {
+        opacity: 0.45;
+      }
+
+    </style></foreignObject><text x="10" y="22.5" text-anchor="start" dominant-baseline="auto" font-size="20px" font-family="Helvetica, Arial, sans-serif" font-weight="bold" fill="#000000" class="apexcharts-title-text" style="font-family: Helvetica, Arial, sans-serif; opacity: 1;">Timeline &amp; Trends</text><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g class="apexcharts-inner apexcharts-graphical" transform="translate(12, 58)"><defs><linearGradient x1="0" y1="0" x2="0" y2="1" id="SvgjsLinearGradient1065"><stop stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></linearGradient><clipPath id="gridRectMasktq36hm48"><rect width="366.328125" height="184.348" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectBarMasktq36hm48"><rect width="370.328125" height="188.348" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMasktq36hm48"><rect width="366.328125" height="184.348" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMasktq36hm48"></clipPath><clipPath id="nonForecastMasktq36hm48"></clipPath></defs><rect width="0" height="184.348" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="#b6b6b6" stroke-dasharray="3" fill="url(#SvgjsLinearGradient1065)" class="apexcharts-xcrosshairs" y2="184.348" filter="none" fill-opacity="0.9"></rect><line x1="0" y1="184.348" x2="0" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="30.52734375" y1="184.348" x2="30.52734375" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="61.0546875" y1="184.348" x2="61.0546875" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="91.58203125" y1="184.348" x2="91.58203125" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="122.109375" y1="184.348" x2="122.109375" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="152.63671875" y1="184.348" x2="152.63671875" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="183.1640625" y1="184.348" x2="183.1640625" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="213.69140625" y1="184.348" x2="213.69140625" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="244.21875" y1="184.348" x2="244.21875" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="274.74609375" y1="184.348" x2="274.74609375" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="305.2734375" y1="184.348" x2="305.2734375" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="335.80078125" y1="184.348" x2="335.80078125" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="366.328125" y1="184.348" x2="366.328125" y2="190.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><g class="apexcharts-grid"><g class="apexcharts-gridlines-horizontal"><line x1="0" y1="36.869600000000005" x2="366.328125" y2="36.869600000000005" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="73.73920000000001" x2="366.328125" y2="73.73920000000001" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="110.60880000000002" x2="366.328125" y2="110.60880000000002" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="147.47840000000002" x2="366.328125" y2="147.47840000000002" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line></g><g class="apexcharts-gridlines-vertical"></g><line x1="0" y1="184.348" x2="366.328125" y2="184.348" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line><line x1="0" y1="1" x2="0" y2="184.348" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line></g><g class="apexcharts-grid-borders"><line x1="0" y1="0" x2="366.328125" y2="0" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="184.348" x2="366.328125" y2="184.348" stroke="#e9eaeb" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="184.348" x2="366.328125" y2="184.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt"></line></g><g class="apexcharts-bar-series apexcharts-plot-series"><g class="apexcharts-series" seriesName="PhishingxAttempts" rel="1" data:realIndex="0"><path d="M3.052734375 184.34900000000002L3.052734375 109.23588000000001C3.052734375 106.23588000000001 6.052734375 103.23588000000001 9.052734375 103.23588000000001L21.474609375 103.23588000000001C24.474609375 103.23588000000001 27.474609375 106.23588000000001 27.474609375 109.23588000000001L27.474609375 184.34900000000002L3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002C3.052734375 184.34900000000002 3.052734375 184.34900000000002 3.052734375 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 3.052734375 184.34900000000002 L 3.052734375 109.23588000000001 C 3.052734375 106.23588000000001 6.052734375 103.23588000000001 9.052734375 103.23588000000001 L 21.474609375 103.23588000000001 C 24.474609375 103.23588000000001 27.474609375 106.23588000000001 27.474609375 109.23588000000001 L 27.474609375 184.34900000000002 z " pathFrom="M 3.052734375 184.34900000000002 L 3.052734375 109.23588000000001 C 3.052734375 106.23588000000001 6.052734375 103.23588000000001 9.052734375 103.23588000000001 L 21.474609375 103.23588000000001 C 24.474609375 103.23588000000001 27.474609375 106.23588000000001 27.474609375 109.23588000000001 L 27.474609375 184.34900000000002 z  L 3.052734375 184.34900000000002 L 27.474609375 184.34900000000002 L 27.474609375 184.34900000000002 L 27.474609375 184.34900000000002 L 27.474609375 184.34900000000002 L 27.474609375 184.34900000000002 L 3.052734375 184.34900000000002 z" cy="103.23488" cx="33.580078125" j="0" val="44" barHeight="81.11312000000001" barWidth="24.421875"></path><path d="M33.580078125 184.34900000000002L33.580078125 88.95760000000001C33.580078125 85.95760000000001 36.580078125 82.95760000000001 39.580078125 82.95760000000001L52.001953125 82.95760000000001C55.001953125 82.95760000000001 58.001953125 85.95760000000001 58.001953125 88.95760000000001L58.001953125 184.34900000000002L33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002C33.580078125 184.34900000000002 33.580078125 184.34900000000002 33.580078125 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 33.580078125 184.34900000000002 L 33.580078125 88.95760000000001 C 33.580078125 85.95760000000001 36.580078125 82.95760000000001 39.580078125 82.95760000000001 L 52.001953125 82.95760000000001 C 55.001953125 82.95760000000001 58.001953125 85.95760000000001 58.001953125 88.95760000000001 L 58.001953125 184.34900000000002 z " pathFrom="M 33.580078125 184.34900000000002 L 33.580078125 88.95760000000001 C 33.580078125 85.95760000000001 36.580078125 82.95760000000001 39.580078125 82.95760000000001 L 52.001953125 82.95760000000001 C 55.001953125 82.95760000000001 58.001953125 85.95760000000001 58.001953125 88.95760000000001 L 58.001953125 184.34900000000002 z  L 33.580078125 184.34900000000002 L 58.001953125 184.34900000000002 L 58.001953125 184.34900000000002 L 58.001953125 184.34900000000002 L 58.001953125 184.34900000000002 L 58.001953125 184.34900000000002 L 33.580078125 184.34900000000002 z" cy="82.95660000000001" cx="64.107421875" j="1" val="55" barHeight="101.3914" barWidth="24.421875"></path><path d="M64.107421875 184.34900000000002L64.107421875 114.76632000000002C64.107421875 111.76632000000002 67.107421875 108.76632000000002 70.107421875 108.76632000000002L82.529296875 108.76632000000002C85.529296875 108.76632000000002 88.529296875 111.76632000000002 88.529296875 114.76632000000002L88.529296875 184.34900000000002L64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002C64.107421875 184.34900000000002 64.107421875 184.34900000000002 64.107421875 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 64.107421875 184.34900000000002 L 64.107421875 114.76632000000002 C 64.107421875 111.76632000000002 67.107421875 108.76632000000002 70.107421875 108.76632000000002 L 82.529296875 108.76632000000002 C 85.529296875 108.76632000000002 88.529296875 111.76632000000002 88.529296875 114.76632000000002 L 88.529296875 184.34900000000002 z " pathFrom="M 64.107421875 184.34900000000002 L 64.107421875 114.76632000000002 C 64.107421875 111.76632000000002 67.107421875 108.76632000000002 70.107421875 108.76632000000002 L 82.529296875 108.76632000000002 C 85.529296875 108.76632000000002 88.529296875 111.76632000000002 88.529296875 114.76632000000002 L 88.529296875 184.34900000000002 z  L 64.107421875 184.34900000000002 L 88.529296875 184.34900000000002 L 88.529296875 184.34900000000002 L 88.529296875 184.34900000000002 L 88.529296875 184.34900000000002 L 88.529296875 184.34900000000002 L 64.107421875 184.34900000000002 z" cy="108.76532000000002" cx="94.634765625" j="2" val="41" barHeight="75.58268" barWidth="24.421875"></path><path d="M94.634765625 184.34900000000002L94.634765625 66.83584000000002C94.634765625 63.83584000000002 97.634765625 60.83584000000001 100.634765625 60.83584000000001L113.056640625 60.83584000000001C116.056640625 60.83584000000001 119.056640625 63.83584000000002 119.056640625 66.83584000000002L119.056640625 184.34900000000002L94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002C94.634765625 184.34900000000002 94.634765625 184.34900000000002 94.634765625 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 94.634765625 184.34900000000002 L 94.634765625 66.83584000000002 C 94.634765625 63.83584000000002 97.634765625 60.83584000000001 100.634765625 60.83584000000001 L 113.056640625 60.83584000000001 C 116.056640625 60.83584000000001 119.056640625 63.83584000000002 119.056640625 66.83584000000002 L 119.056640625 184.34900000000002 z " pathFrom="M 94.634765625 184.34900000000002 L 94.634765625 66.83584000000002 C 94.634765625 63.83584000000002 97.634765625 60.83584000000001 100.634765625 60.83584000000001 L 113.056640625 60.83584000000001 C 116.056640625 60.83584000000001 119.056640625 63.83584000000002 119.056640625 66.83584000000002 L 119.056640625 184.34900000000002 z  L 94.634765625 184.34900000000002 L 119.056640625 184.34900000000002 L 119.056640625 184.34900000000002 L 119.056640625 184.34900000000002 L 119.056640625 184.34900000000002 L 119.056640625 184.34900000000002 L 94.634765625 184.34900000000002 z" cy="60.834840000000014" cx="125.162109375" j="3" val="67" barHeight="123.51316" barWidth="24.421875"></path><path d="M125.162109375 184.34900000000002L125.162109375 149.79244000000003C125.162109375 146.79244000000003 128.162109375 143.79244000000003 131.162109375 143.79244000000003L143.583984375 143.79244000000003C146.583984375 143.79244000000003 149.583984375 146.79244000000003 149.583984375 149.79244000000003L149.583984375 184.34900000000002L125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002C125.162109375 184.34900000000002 125.162109375 184.34900000000002 125.162109375 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 125.162109375 184.34900000000002 L 125.162109375 149.79244000000003 C 125.162109375 146.79244000000003 128.162109375 143.79244000000003 131.162109375 143.79244000000003 L 143.583984375 143.79244000000003 C 146.583984375 143.79244000000003 149.583984375 146.79244000000003 149.583984375 149.79244000000003 L 149.583984375 184.34900000000002 z " pathFrom="M 125.162109375 184.34900000000002 L 125.162109375 149.79244000000003 C 125.162109375 146.79244000000003 128.162109375 143.79244000000003 131.162109375 143.79244000000003 L 143.583984375 143.79244000000003 C 146.583984375 143.79244000000003 149.583984375 146.79244000000003 149.583984375 149.79244000000003 L 149.583984375 184.34900000000002 z  L 125.162109375 184.34900000000002 L 149.583984375 184.34900000000002 L 149.583984375 184.34900000000002 L 149.583984375 184.34900000000002 L 149.583984375 184.34900000000002 L 149.583984375 184.34900000000002 L 125.162109375 184.34900000000002 z" cy="143.79144000000002" cx="155.689453125" j="4" val="22" barHeight="40.556560000000005" barWidth="24.421875"></path><path d="M155.689453125 184.34900000000002L155.689453125 111.07936000000002C155.689453125 108.07936000000002 158.689453125 105.07936000000002 161.689453125 105.07936000000002L174.111328125 105.07936000000002C177.111328125 105.07936000000002 180.111328125 108.07936000000002 180.111328125 111.07936000000002L180.111328125 184.34900000000002L155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002C155.689453125 184.34900000000002 155.689453125 184.34900000000002 155.689453125 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 155.689453125 184.34900000000002 L 155.689453125 111.07936000000002 C 155.689453125 108.07936000000002 158.689453125 105.07936000000002 161.689453125 105.07936000000002 L 174.111328125 105.07936000000002 C 177.111328125 105.07936000000002 180.111328125 108.07936000000002 180.111328125 111.07936000000002 L 180.111328125 184.34900000000002 z " pathFrom="M 155.689453125 184.34900000000002 L 155.689453125 111.07936000000002 C 155.689453125 108.07936000000002 158.689453125 105.07936000000002 161.689453125 105.07936000000002 L 174.111328125 105.07936000000002 C 177.111328125 105.07936000000002 180.111328125 108.07936000000002 180.111328125 111.07936000000002 L 180.111328125 184.34900000000002 z  L 155.689453125 184.34900000000002 L 180.111328125 184.34900000000002 L 180.111328125 184.34900000000002 L 180.111328125 184.34900000000002 L 180.111328125 184.34900000000002 L 180.111328125 184.34900000000002 L 155.689453125 184.34900000000002 z" cy="105.07836000000002" cx="186.216796875" j="5" val="43" barHeight="79.26964" barWidth="24.421875"></path><path d="M186.216796875 184.34900000000002L186.216796875 135.04460000000003C186.216796875 132.04460000000003 189.216796875 129.04460000000003 192.216796875 129.04460000000003L204.638671875 129.04460000000003C207.638671875 129.04460000000003 210.638671875 132.04460000000003 210.638671875 135.04460000000003L210.638671875 184.34900000000002L186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002C186.216796875 184.34900000000002 186.216796875 184.34900000000002 186.216796875 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 186.216796875 184.34900000000002 L 186.216796875 135.04460000000003 C 186.216796875 132.04460000000003 189.216796875 129.04460000000003 192.216796875 129.04460000000003 L 204.638671875 129.04460000000003 C 207.638671875 129.04460000000003 210.638671875 132.04460000000003 210.638671875 135.04460000000003 L 210.638671875 184.34900000000002 z " pathFrom="M 186.216796875 184.34900000000002 L 186.216796875 135.04460000000003 C 186.216796875 132.04460000000003 189.216796875 129.04460000000003 192.216796875 129.04460000000003 L 204.638671875 129.04460000000003 C 207.638671875 129.04460000000003 210.638671875 132.04460000000003 210.638671875 135.04460000000003 L 210.638671875 184.34900000000002 z  L 186.216796875 184.34900000000002 L 210.638671875 184.34900000000002 L 210.638671875 184.34900000000002 L 210.638671875 184.34900000000002 L 210.638671875 184.34900000000002 L 210.638671875 184.34900000000002 L 186.216796875 184.34900000000002 z" cy="129.04360000000003" cx="216.744140625" j="6" val="30" barHeight="55.3044" barWidth="24.421875"></path><path d="M216.744140625 184.34900000000002L216.744140625 116.60980000000002C216.744140625 113.60980000000002 219.744140625 110.60980000000002 222.744140625 110.60980000000002L235.166015625 110.60980000000002C238.166015625 110.60980000000002 241.166015625 113.60980000000002 241.166015625 116.60980000000002L241.166015625 184.34900000000002L216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002C216.744140625 184.34900000000002 216.744140625 184.34900000000002 216.744140625 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 216.744140625 184.34900000000002 L 216.744140625 116.60980000000002 C 216.744140625 113.60980000000002 219.744140625 110.60980000000002 222.744140625 110.60980000000002 L 235.166015625 110.60980000000002 C 238.166015625 110.60980000000002 241.166015625 113.60980000000002 241.166015625 116.60980000000002 L 241.166015625 184.34900000000002 z " pathFrom="M 216.744140625 184.34900000000002 L 216.744140625 116.60980000000002 C 216.744140625 113.60980000000002 219.744140625 110.60980000000002 222.744140625 110.60980000000002 L 235.166015625 110.60980000000002 C 238.166015625 110.60980000000002 241.166015625 113.60980000000002 241.166015625 116.60980000000002 L 241.166015625 184.34900000000002 z  L 216.744140625 184.34900000000002 L 241.166015625 184.34900000000002 L 241.166015625 184.34900000000002 L 241.166015625 184.34900000000002 L 241.166015625 184.34900000000002 L 241.166015625 184.34900000000002 L 216.744140625 184.34900000000002 z" cy="110.60880000000002" cx="247.271484375" j="7" val="40" barHeight="73.7392" barWidth="24.421875"></path><path d="M247.271484375 184.34900000000002L247.271484375 153.47940000000003C247.271484375 150.47940000000003 250.271484375 147.47940000000003 253.271484375 147.47940000000003L265.693359375 147.47940000000003C268.693359375 147.47940000000003 271.693359375 150.47940000000003 271.693359375 153.47940000000003L271.693359375 184.34900000000002L247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002C247.271484375 184.34900000000002 247.271484375 184.34900000000002 247.271484375 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 247.271484375 184.34900000000002 L 247.271484375 153.47940000000003 C 247.271484375 150.47940000000003 250.271484375 147.47940000000003 253.271484375 147.47940000000003 L 265.693359375 147.47940000000003 C 268.693359375 147.47940000000003 271.693359375 150.47940000000003 271.693359375 153.47940000000003 L 271.693359375 184.34900000000002 z " pathFrom="M 247.271484375 184.34900000000002 L 247.271484375 153.47940000000003 C 247.271484375 150.47940000000003 250.271484375 147.47940000000003 253.271484375 147.47940000000003 L 265.693359375 147.47940000000003 C 268.693359375 147.47940000000003 271.693359375 150.47940000000003 271.693359375 153.47940000000003 L 271.693359375 184.34900000000002 z  L 247.271484375 184.34900000000002 L 271.693359375 184.34900000000002 L 271.693359375 184.34900000000002 L 271.693359375 184.34900000000002 L 271.693359375 184.34900000000002 L 271.693359375 184.34900000000002 L 247.271484375 184.34900000000002 z" cy="147.47840000000002" cx="277.798828125" j="8" val="20" barHeight="36.8696" barWidth="24.421875"></path><path d="M277.798828125 184.34900000000002L277.798828125 135.04460000000003C277.798828125 132.04460000000003 280.798828125 129.04460000000003 283.798828125 129.04460000000003L296.220703125 129.04460000000003C299.220703125 129.04460000000003 302.220703125 132.04460000000003 302.220703125 135.04460000000003L302.220703125 184.34900000000002L277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002C277.798828125 184.34900000000002 277.798828125 184.34900000000002 277.798828125 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 277.798828125 184.34900000000002 L 277.798828125 135.04460000000003 C 277.798828125 132.04460000000003 280.798828125 129.04460000000003 283.798828125 129.04460000000003 L 296.220703125 129.04460000000003 C 299.220703125 129.04460000000003 302.220703125 132.04460000000003 302.220703125 135.04460000000003 L 302.220703125 184.34900000000002 z " pathFrom="M 277.798828125 184.34900000000002 L 277.798828125 135.04460000000003 C 277.798828125 132.04460000000003 280.798828125 129.04460000000003 283.798828125 129.04460000000003 L 296.220703125 129.04460000000003 C 299.220703125 129.04460000000003 302.220703125 132.04460000000003 302.220703125 135.04460000000003 L 302.220703125 184.34900000000002 z  L 277.798828125 184.34900000000002 L 302.220703125 184.34900000000002 L 302.220703125 184.34900000000002 L 302.220703125 184.34900000000002 L 302.220703125 184.34900000000002 L 302.220703125 184.34900000000002 L 277.798828125 184.34900000000002 z" cy="129.04360000000003" cx="308.326171875" j="9" val="30" barHeight="55.3044" barWidth="24.421875"></path><path d="M308.326171875 184.34900000000002L308.326171875 153.47940000000003C308.326171875 150.47940000000003 311.326171875 147.47940000000003 314.326171875 147.47940000000003L326.748046875 147.47940000000003C329.748046875 147.47940000000003 332.748046875 150.47940000000003 332.748046875 153.47940000000003L332.748046875 184.34900000000002L308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002C308.326171875 184.34900000000002 308.326171875 184.34900000000002 308.326171875 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 308.326171875 184.34900000000002 L 308.326171875 153.47940000000003 C 308.326171875 150.47940000000003 311.326171875 147.47940000000003 314.326171875 147.47940000000003 L 326.748046875 147.47940000000003 C 329.748046875 147.47940000000003 332.748046875 150.47940000000003 332.748046875 153.47940000000003 L 332.748046875 184.34900000000002 z " pathFrom="M 308.326171875 184.34900000000002 L 308.326171875 153.47940000000003 C 308.326171875 150.47940000000003 311.326171875 147.47940000000003 314.326171875 147.47940000000003 L 326.748046875 147.47940000000003 C 329.748046875 147.47940000000003 332.748046875 150.47940000000003 332.748046875 153.47940000000003 L 332.748046875 184.34900000000002 z  L 308.326171875 184.34900000000002 L 332.748046875 184.34900000000002 L 332.748046875 184.34900000000002 L 332.748046875 184.34900000000002 L 332.748046875 184.34900000000002 L 332.748046875 184.34900000000002 L 308.326171875 184.34900000000002 z" cy="147.47840000000002" cx="338.853515625" j="10" val="20" barHeight="36.8696" barWidth="24.421875"></path><path d="M338.853515625 184.34900000000002L338.853515625 171.91420000000002C338.853515625 168.91420000000002 341.853515625 165.91420000000002 344.853515625 165.91420000000002L357.275390625 165.91420000000002C360.275390625 165.91420000000002 363.275390625 168.91420000000002 363.275390625 171.91420000000002L363.275390625 184.34900000000002L338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002C338.853515625 184.34900000000002 338.853515625 184.34900000000002 338.853515625 184.34900000000002 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#3a5ac4" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area apexcharts-flip-y" index="0" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 338.853515625 184.34900000000002 L 338.853515625 171.91420000000002 C 338.853515625 168.91420000000002 341.853515625 165.91420000000002 344.853515625 165.91420000000002 L 357.275390625 165.91420000000002 C 360.275390625 165.91420000000002 363.275390625 168.91420000000002 363.275390625 171.91420000000002 L 363.275390625 184.34900000000002 z " pathFrom="M 338.853515625 184.34900000000002 L 338.853515625 171.91420000000002 C 338.853515625 168.91420000000002 341.853515625 165.91420000000002 344.853515625 165.91420000000002 L 357.275390625 165.91420000000002 C 360.275390625 165.91420000000002 363.275390625 168.91420000000002 363.275390625 171.91420000000002 L 363.275390625 184.34900000000002 z  L 338.853515625 184.34900000000002 L 363.275390625 184.34900000000002 L 363.275390625 184.34900000000002 L 363.275390625 184.34900000000002 L 363.275390625 184.34900000000002 L 363.275390625 184.34900000000002 L 338.853515625 184.34900000000002 z" cy="165.91320000000002" cx="369.380859375" j="11" val="10" barHeight="18.4348" barWidth="24.421875"></path><g class="apexcharts-bar-goals-markers"><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g></g></g><g class="apexcharts-series" seriesName="BlockedxAttacks" rel="2" data:realIndex="1"><path d="M3.052734375 103.23688000000001L3.052734375 79.27164000000002L27.474609375 79.27164000000002L27.474609375 103.23688000000001L3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001C3.052734375 103.23688000000001 3.052734375 103.23688000000001 3.052734375 103.23688000000001 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 3.052734375 103.23688000000001 L 3.052734375 79.27164000000002 L 27.474609375 79.27164000000002 L 27.474609375 103.23688000000001 z" pathFrom="M 3.052734375 103.23688000000001 L 3.052734375 79.27164000000002 L 27.474609375 79.27164000000002 L 27.474609375 103.23688000000001 z L 3.052734375 103.23688000000001 L 27.474609375 103.23688000000001 L 27.474609375 103.23688000000001 L 27.474609375 103.23688000000001 L 27.474609375 103.23688000000001 L 27.474609375 103.23688000000001 L 3.052734375 103.23688000000001 z" cy="79.27064000000001" cx="33.580078125" j="0" val="13" barHeight="23.96524" barWidth="24.421875"></path><path d="M33.580078125 82.95860000000002L33.580078125 40.55856000000001L58.001953125 40.55856000000001L58.001953125 82.95860000000002L33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002C33.580078125 82.95860000000002 33.580078125 82.95860000000002 33.580078125 82.95860000000002 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 33.580078125 82.95860000000002 L 33.580078125 40.55856000000001 L 58.001953125 40.55856000000001 L 58.001953125 82.95860000000002 z" pathFrom="M 33.580078125 82.95860000000002 L 33.580078125 40.55856000000001 L 58.001953125 40.55856000000001 L 58.001953125 82.95860000000002 z L 33.580078125 82.95860000000002 L 58.001953125 82.95860000000002 L 58.001953125 82.95860000000002 L 58.001953125 82.95860000000002 L 58.001953125 82.95860000000002 L 58.001953125 82.95860000000002 L 33.580078125 82.95860000000002 z" cy="40.55756000000001" cx="64.107421875" j="1" val="23" barHeight="42.400040000000004" barWidth="24.421875"></path><path d="M64.107421875 108.76732000000003L64.107421875 71.89772000000002L88.529296875 71.89772000000002L88.529296875 108.76732000000003L64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003C64.107421875 108.76732000000003 64.107421875 108.76732000000003 64.107421875 108.76732000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 64.107421875 108.76732000000003 L 64.107421875 71.89772000000002 L 88.529296875 71.89772000000002 L 88.529296875 108.76732000000003 z" pathFrom="M 64.107421875 108.76732000000003 L 64.107421875 71.89772000000002 L 88.529296875 71.89772000000002 L 88.529296875 108.76732000000003 z L 64.107421875 108.76732000000003 L 88.529296875 108.76732000000003 L 88.529296875 108.76732000000003 L 88.529296875 108.76732000000003 L 88.529296875 108.76732000000003 L 88.529296875 108.76732000000003 L 64.107421875 108.76732000000003 z" cy="71.89672000000002" cx="94.634765625" j="2" val="20" barHeight="36.8696" barWidth="24.421875"></path><path d="M94.634765625 60.83684000000001L94.634765625 46.089000000000006L119.056640625 46.089000000000006L119.056640625 60.83684000000001L94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001C94.634765625 60.83684000000001 94.634765625 60.83684000000001 94.634765625 60.83684000000001 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 94.634765625 60.83684000000001 L 94.634765625 46.089000000000006 L 119.056640625 46.089000000000006 L 119.056640625 60.83684000000001 z" pathFrom="M 94.634765625 60.83684000000001 L 94.634765625 46.089000000000006 L 119.056640625 46.089000000000006 L 119.056640625 60.83684000000001 z L 94.634765625 60.83684000000001 L 119.056640625 60.83684000000001 L 119.056640625 60.83684000000001 L 119.056640625 60.83684000000001 L 119.056640625 60.83684000000001 L 119.056640625 60.83684000000001 L 94.634765625 60.83684000000001 z" cy="46.08800000000001" cx="125.162109375" j="3" val="8" barHeight="14.74784" barWidth="24.421875"></path><path d="M125.162109375 143.79344000000003L125.162109375 119.82820000000004L149.583984375 119.82820000000004L149.583984375 143.79344000000003L125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003C125.162109375 143.79344000000003 125.162109375 143.79344000000003 125.162109375 143.79344000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 125.162109375 143.79344000000003 L 125.162109375 119.82820000000004 L 149.583984375 119.82820000000004 L 149.583984375 143.79344000000003 z" pathFrom="M 125.162109375 143.79344000000003 L 125.162109375 119.82820000000004 L 149.583984375 119.82820000000004 L 149.583984375 143.79344000000003 z L 125.162109375 143.79344000000003 L 149.583984375 143.79344000000003 L 149.583984375 143.79344000000003 L 149.583984375 143.79344000000003 L 149.583984375 143.79344000000003 L 149.583984375 143.79344000000003 L 125.162109375 143.79344000000003 z" cy="119.82720000000003" cx="155.689453125" j="4" val="13" barHeight="23.96524" barWidth="24.421875"></path><path d="M155.689453125 105.08036000000003L155.689453125 55.30640000000002L180.111328125 55.30640000000002L180.111328125 105.08036000000003L155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003C155.689453125 105.08036000000003 155.689453125 105.08036000000003 155.689453125 105.08036000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 155.689453125 105.08036000000003 L 155.689453125 55.30640000000002 L 180.111328125 55.30640000000002 L 180.111328125 105.08036000000003 z" pathFrom="M 155.689453125 105.08036000000003 L 155.689453125 55.30640000000002 L 180.111328125 55.30640000000002 L 180.111328125 105.08036000000003 z L 155.689453125 105.08036000000003 L 180.111328125 105.08036000000003 L 180.111328125 105.08036000000003 L 180.111328125 105.08036000000003 L 180.111328125 105.08036000000003 L 180.111328125 105.08036000000003 L 155.689453125 105.08036000000003 z" cy="55.30540000000002" cx="186.216796875" j="5" val="27" barHeight="49.77396" barWidth="24.421875"></path><path d="M186.216796875 129.04560000000004L186.216796875 73.74120000000003L210.638671875 73.74120000000003L210.638671875 129.04560000000004L186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004C186.216796875 129.04560000000004 186.216796875 129.04560000000004 186.216796875 129.04560000000004 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 186.216796875 129.04560000000004 L 186.216796875 73.74120000000003 L 210.638671875 73.74120000000003 L 210.638671875 129.04560000000004 z" pathFrom="M 186.216796875 129.04560000000004 L 186.216796875 73.74120000000003 L 210.638671875 73.74120000000003 L 210.638671875 129.04560000000004 z L 186.216796875 129.04560000000004 L 210.638671875 129.04560000000004 L 210.638671875 129.04560000000004 L 210.638671875 129.04560000000004 L 210.638671875 129.04560000000004 L 210.638671875 129.04560000000004 L 186.216796875 129.04560000000004 z" cy="73.74020000000003" cx="216.744140625" j="6" val="30" barHeight="55.3044" barWidth="24.421875"></path><path d="M216.744140625 110.61080000000003L216.744140625 36.87160000000002L241.166015625 36.87160000000002L241.166015625 110.61080000000003L216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003C216.744140625 110.61080000000003 216.744140625 110.61080000000003 216.744140625 110.61080000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 216.744140625 110.61080000000003 L 216.744140625 36.87160000000002 L 241.166015625 36.87160000000002 L 241.166015625 110.61080000000003 z" pathFrom="M 216.744140625 110.61080000000003 L 216.744140625 36.87160000000002 L 241.166015625 36.87160000000002 L 241.166015625 110.61080000000003 z L 216.744140625 110.61080000000003 L 241.166015625 110.61080000000003 L 241.166015625 110.61080000000003 L 241.166015625 110.61080000000003 L 241.166015625 110.61080000000003 L 241.166015625 110.61080000000003 L 216.744140625 110.61080000000003 z" cy="36.870600000000024" cx="247.271484375" j="7" val="40" barHeight="73.7392" barWidth="24.421875"></path><path d="M247.271484375 147.48040000000003L247.271484375 110.61080000000004L271.693359375 110.61080000000004L271.693359375 147.48040000000003L247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003C247.271484375 147.48040000000003 247.271484375 147.48040000000003 247.271484375 147.48040000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 247.271484375 147.48040000000003 L 247.271484375 110.61080000000004 L 271.693359375 110.61080000000004 L 271.693359375 147.48040000000003 z" pathFrom="M 247.271484375 147.48040000000003 L 247.271484375 110.61080000000004 L 271.693359375 110.61080000000004 L 271.693359375 147.48040000000003 z L 247.271484375 147.48040000000003 L 271.693359375 147.48040000000003 L 271.693359375 147.48040000000003 L 271.693359375 147.48040000000003 L 271.693359375 147.48040000000003 L 271.693359375 147.48040000000003 L 247.271484375 147.48040000000003 z" cy="110.60980000000004" cx="277.798828125" j="8" val="20" barHeight="36.8696" barWidth="24.421875"></path><path d="M277.798828125 129.04560000000004L277.798828125 73.74120000000003L302.220703125 73.74120000000003L302.220703125 129.04560000000004L277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004C277.798828125 129.04560000000004 277.798828125 129.04560000000004 277.798828125 129.04560000000004 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 277.798828125 129.04560000000004 L 277.798828125 73.74120000000003 L 302.220703125 73.74120000000003 L 302.220703125 129.04560000000004 z" pathFrom="M 277.798828125 129.04560000000004 L 277.798828125 73.74120000000003 L 302.220703125 73.74120000000003 L 302.220703125 129.04560000000004 z L 277.798828125 129.04560000000004 L 302.220703125 129.04560000000004 L 302.220703125 129.04560000000004 L 302.220703125 129.04560000000004 L 302.220703125 129.04560000000004 L 302.220703125 129.04560000000004 L 277.798828125 129.04560000000004 z" cy="73.74020000000003" cx="308.326171875" j="9" val="30" barHeight="55.3044" barWidth="24.421875"></path><path d="M308.326171875 147.48040000000003L308.326171875 110.61080000000004L332.748046875 110.61080000000004L332.748046875 147.48040000000003L308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003C308.326171875 147.48040000000003 308.326171875 147.48040000000003 308.326171875 147.48040000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 308.326171875 147.48040000000003 L 308.326171875 110.61080000000004 L 332.748046875 110.61080000000004 L 332.748046875 147.48040000000003 z" pathFrom="M 308.326171875 147.48040000000003 L 308.326171875 110.61080000000004 L 332.748046875 110.61080000000004 L 332.748046875 147.48040000000003 z L 308.326171875 147.48040000000003 L 332.748046875 147.48040000000003 L 332.748046875 147.48040000000003 L 332.748046875 147.48040000000003 L 332.748046875 147.48040000000003 L 332.748046875 147.48040000000003 L 308.326171875 147.48040000000003 z" cy="110.60980000000004" cx="338.853515625" j="10" val="20" barHeight="36.8696" barWidth="24.421875"></path><path d="M338.853515625 165.91520000000003L338.853515625 147.48040000000003L363.275390625 147.48040000000003L363.275390625 165.91520000000003L338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003C338.853515625 165.91520000000003 338.853515625 165.91520000000003 338.853515625 165.91520000000003 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#6484ee" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="1" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 338.853515625 165.91520000000003 L 338.853515625 147.48040000000003 L 363.275390625 147.48040000000003 L 363.275390625 165.91520000000003 z" pathFrom="M 338.853515625 165.91520000000003 L 338.853515625 147.48040000000003 L 363.275390625 147.48040000000003 L 363.275390625 165.91520000000003 z L 338.853515625 165.91520000000003 L 363.275390625 165.91520000000003 L 363.275390625 165.91520000000003 L 363.275390625 165.91520000000003 L 363.275390625 165.91520000000003 L 363.275390625 165.91520000000003 L 338.853515625 165.91520000000003 z" cy="147.47940000000003" cx="369.380859375" j="11" val="10" barHeight="18.4348" barWidth="24.421875"></path><g class="apexcharts-bar-goals-markers"><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g></g></g><g class="apexcharts-series" seriesName="FalsexPositives" rel="3" data:realIndex="2"><path d="M3.052734375 79.27264000000002L3.052734375 64.99436000000001C3.052734375 61.994360000000015 6.052734375 58.994360000000015 9.052734375 58.994360000000015L21.474609375 58.994360000000015C24.474609375 58.994360000000015 27.474609375 61.994360000000015 27.474609375 64.99436000000001L27.474609375 79.27264000000002L3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002C3.052734375 79.27264000000002 3.052734375 79.27264000000002 3.052734375 79.27264000000002 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 3.052734375 79.27264000000002 L 3.052734375 64.99436000000001 C 3.052734375 61.994360000000015 6.052734375 58.994360000000015 9.052734375 58.994360000000015 L 21.474609375 58.994360000000015 C 24.474609375 58.994360000000015 27.474609375 61.994360000000015 27.474609375 64.99436000000001 L 27.474609375 79.27264000000002 z " pathFrom="M 3.052734375 79.27264000000002 L 3.052734375 64.99436000000001 C 3.052734375 61.994360000000015 6.052734375 58.994360000000015 9.052734375 58.994360000000015 L 21.474609375 58.994360000000015 C 24.474609375 58.994360000000015 27.474609375 61.994360000000015 27.474609375 64.99436000000001 L 27.474609375 79.27264000000002 z  L 3.052734375 79.27264000000002 L 27.474609375 79.27264000000002 L 27.474609375 79.27264000000002 L 27.474609375 79.27264000000002 L 27.474609375 79.27264000000002 L 27.474609375 79.27264000000002 L 3.052734375 79.27264000000002 z" cy="58.99336000000002" cx="33.580078125" j="0" val="11" barHeight="20.278280000000002" barWidth="24.421875"></path><path d="M33.580078125 40.559560000000005L33.580078125 15.220400000000007C33.580078125 12.220400000000007 36.580078125 9.220400000000007 39.580078125 9.220400000000007L52.001953125 9.220400000000007C55.001953125 9.220400000000007 58.001953125 12.220400000000007 58.001953125 15.220400000000007L58.001953125 40.559560000000005L33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005C33.580078125 40.559560000000005 33.580078125 40.559560000000005 33.580078125 40.559560000000005 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 33.580078125 40.559560000000005 L 33.580078125 15.220400000000007 C 33.580078125 12.220400000000007 36.580078125 9.220400000000007 39.580078125 9.220400000000007 L 52.001953125 9.220400000000007 C 55.001953125 9.220400000000007 58.001953125 12.220400000000007 58.001953125 15.220400000000007 L 58.001953125 40.559560000000005 z " pathFrom="M 33.580078125 40.559560000000005 L 33.580078125 15.220400000000007 C 33.580078125 12.220400000000007 36.580078125 9.220400000000007 39.580078125 9.220400000000007 L 52.001953125 9.220400000000007 C 55.001953125 9.220400000000007 58.001953125 12.220400000000007 58.001953125 15.220400000000007 L 58.001953125 40.559560000000005 z  L 33.580078125 40.559560000000005 L 58.001953125 40.559560000000005 L 58.001953125 40.559560000000005 L 58.001953125 40.559560000000005 L 58.001953125 40.559560000000005 L 58.001953125 40.559560000000005 L 33.580078125 40.559560000000005 z" cy="9.219400000000007" cx="64.107421875" j="1" val="17" barHeight="31.33916" barWidth="24.421875"></path><path d="M64.107421875 71.89872000000003L64.107421875 50.24652000000002C64.107421875 47.24652000000002 67.107421875 44.24652000000002 70.107421875 44.24652000000002L82.529296875 44.24652000000002C85.529296875 44.24652000000002 88.529296875 47.24652000000002 88.529296875 50.24652000000002L88.529296875 71.89872000000003L64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003C64.107421875 71.89872000000003 64.107421875 71.89872000000003 64.107421875 71.89872000000003 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 64.107421875 71.89872000000003 L 64.107421875 50.24652000000002 C 64.107421875 47.24652000000002 67.107421875 44.24652000000002 70.107421875 44.24652000000002 L 82.529296875 44.24652000000002 C 85.529296875 44.24652000000002 88.529296875 47.24652000000002 88.529296875 50.24652000000002 L 88.529296875 71.89872000000003 z " pathFrom="M 64.107421875 71.89872000000003 L 64.107421875 50.24652000000002 C 64.107421875 47.24652000000002 67.107421875 44.24652000000002 70.107421875 44.24652000000002 L 82.529296875 44.24652000000002 C 85.529296875 44.24652000000002 88.529296875 47.24652000000002 88.529296875 50.24652000000002 L 88.529296875 71.89872000000003 z  L 64.107421875 71.89872000000003 L 88.529296875 71.89872000000003 L 88.529296875 71.89872000000003 L 88.529296875 71.89872000000003 L 88.529296875 71.89872000000003 L 88.529296875 71.89872000000003 L 64.107421875 71.89872000000003 z" cy="44.24552000000002" cx="94.634765625" j="2" val="15" barHeight="27.6522" barWidth="24.421875"></path><path d="M94.634765625 46.09L94.634765625 24.437800000000006C94.634765625 21.437800000000006 97.634765625 18.437800000000006 100.634765625 18.437800000000006L113.056640625 18.437800000000006C116.056640625 18.437800000000006 119.056640625 21.437800000000006 119.056640625 24.437800000000006L119.056640625 46.09L94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09C94.634765625 46.09 94.634765625 46.09 94.634765625 46.09 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 94.634765625 46.09 L 94.634765625 24.437800000000006 C 94.634765625 21.437800000000006 97.634765625 18.437800000000006 100.634765625 18.437800000000006 L 113.056640625 18.437800000000006 C 116.056640625 18.437800000000006 119.056640625 21.437800000000006 119.056640625 24.437800000000006 L 119.056640625 46.09 z " pathFrom="M 94.634765625 46.09 L 94.634765625 24.437800000000006 C 94.634765625 21.437800000000006 97.634765625 18.437800000000006 100.634765625 18.437800000000006 L 113.056640625 18.437800000000006 C 116.056640625 18.437800000000006 119.056640625 21.437800000000006 119.056640625 24.437800000000006 L 119.056640625 46.09 z  L 94.634765625 46.09 L 119.056640625 46.09 L 119.056640625 46.09 L 119.056640625 46.09 L 119.056640625 46.09 L 119.056640625 46.09 L 94.634765625 46.09 z" cy="18.436800000000005" cx="125.162109375" j="3" val="15" barHeight="27.6522" barWidth="24.421875"></path><path d="M125.162109375 119.82920000000004L125.162109375 87.11612000000005C125.162109375 84.11612000000005 128.162109375 81.11612000000005 131.162109375 81.11612000000005L143.583984375 81.11612000000005C146.583984375 81.11612000000005 149.583984375 84.11612000000005 149.583984375 87.11612000000005L149.583984375 119.82920000000004L125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004C125.162109375 119.82920000000004 125.162109375 119.82920000000004 125.162109375 119.82920000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 125.162109375 119.82920000000004 L 125.162109375 87.11612000000005 C 125.162109375 84.11612000000005 128.162109375 81.11612000000005 131.162109375 81.11612000000005 L 143.583984375 81.11612000000005 C 146.583984375 81.11612000000005 149.583984375 84.11612000000005 149.583984375 87.11612000000005 L 149.583984375 119.82920000000004 z " pathFrom="M 125.162109375 119.82920000000004 L 125.162109375 87.11612000000005 C 125.162109375 84.11612000000005 128.162109375 81.11612000000005 131.162109375 81.11612000000005 L 143.583984375 81.11612000000005 C 146.583984375 81.11612000000005 149.583984375 84.11612000000005 149.583984375 87.11612000000005 L 149.583984375 119.82920000000004 z  L 125.162109375 119.82920000000004 L 149.583984375 119.82920000000004 L 149.583984375 119.82920000000004 L 149.583984375 119.82920000000004 L 149.583984375 119.82920000000004 L 149.583984375 119.82920000000004 L 125.162109375 119.82920000000004 z" cy="81.11512000000005" cx="155.689453125" j="4" val="21" barHeight="38.71308" barWidth="24.421875"></path><path d="M155.689453125 55.307400000000015L155.689453125 35.49868000000002C155.689453125 32.49868000000002 158.689453125 29.498680000000018 161.689453125 29.498680000000018L174.111328125 29.498680000000018C177.111328125 29.498680000000018 180.111328125 32.49868000000002 180.111328125 35.49868000000002L180.111328125 55.307400000000015L155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015C155.689453125 55.307400000000015 155.689453125 55.307400000000015 155.689453125 55.307400000000015 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 155.689453125 55.307400000000015 L 155.689453125 35.49868000000002 C 155.689453125 32.49868000000002 158.689453125 29.498680000000018 161.689453125 29.498680000000018 L 174.111328125 29.498680000000018 C 177.111328125 29.498680000000018 180.111328125 32.49868000000002 180.111328125 35.49868000000002 L 180.111328125 55.307400000000015 z " pathFrom="M 155.689453125 55.307400000000015 L 155.689453125 35.49868000000002 C 155.689453125 32.49868000000002 158.689453125 29.498680000000018 161.689453125 29.498680000000018 L 174.111328125 29.498680000000018 C 177.111328125 29.498680000000018 180.111328125 32.49868000000002 180.111328125 35.49868000000002 L 180.111328125 55.307400000000015 z  L 155.689453125 55.307400000000015 L 180.111328125 55.307400000000015 L 180.111328125 55.307400000000015 L 180.111328125 55.307400000000015 L 180.111328125 55.307400000000015 L 180.111328125 55.307400000000015 L 155.689453125 55.307400000000015 z" cy="29.497680000000017" cx="186.216796875" j="5" val="14" barHeight="25.80872" barWidth="24.421875"></path><path d="M186.216796875 73.74220000000004L186.216796875 59.46392000000003C186.216796875 56.46392000000003 189.216796875 53.46392000000003 192.216796875 53.46392000000003L204.638671875 53.46392000000003C207.638671875 53.46392000000003 210.638671875 56.46392000000003 210.638671875 59.46392000000003L210.638671875 73.74220000000004L186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004C186.216796875 73.74220000000004 186.216796875 73.74220000000004 186.216796875 73.74220000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 186.216796875 73.74220000000004 L 186.216796875 59.46392000000003 C 186.216796875 56.46392000000003 189.216796875 53.46392000000003 192.216796875 53.46392000000003 L 204.638671875 53.46392000000003 C 207.638671875 53.46392000000003 210.638671875 56.46392000000003 210.638671875 59.46392000000003 L 210.638671875 73.74220000000004 z " pathFrom="M 186.216796875 73.74220000000004 L 186.216796875 59.46392000000003 C 186.216796875 56.46392000000003 189.216796875 53.46392000000003 192.216796875 53.46392000000003 L 204.638671875 53.46392000000003 C 207.638671875 53.46392000000003 210.638671875 56.46392000000003 210.638671875 59.46392000000003 L 210.638671875 73.74220000000004 z  L 186.216796875 73.74220000000004 L 210.638671875 73.74220000000004 L 210.638671875 73.74220000000004 L 210.638671875 73.74220000000004 L 210.638671875 73.74220000000004 L 210.638671875 73.74220000000004 L 186.216796875 73.74220000000004 z" cy="53.46292000000003" cx="216.744140625" j="6" val="11" barHeight="20.278280000000002" barWidth="24.421875"></path><path d="M216.744140625 36.87260000000002L216.744140625 11.533440000000024C216.744140625 8.533440000000024 219.744140625 5.533440000000023 222.744140625 5.533440000000023L235.166015625 5.533440000000023C238.166015625 5.533440000000023 241.166015625 8.533440000000024 241.166015625 11.533440000000024L241.166015625 36.87260000000002L216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002C216.744140625 36.87260000000002 216.744140625 36.87260000000002 216.744140625 36.87260000000002 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 216.744140625 36.87260000000002 L 216.744140625 11.533440000000024 C 216.744140625 8.533440000000024 219.744140625 5.533440000000023 222.744140625 5.533440000000023 L 235.166015625 5.533440000000023 C 238.166015625 5.533440000000023 241.166015625 8.533440000000024 241.166015625 11.533440000000024 L 241.166015625 36.87260000000002 z " pathFrom="M 216.744140625 36.87260000000002 L 216.744140625 11.533440000000024 C 216.744140625 8.533440000000024 219.744140625 5.533440000000023 222.744140625 5.533440000000023 L 235.166015625 5.533440000000023 C 238.166015625 5.533440000000023 241.166015625 8.533440000000024 241.166015625 11.533440000000024 L 241.166015625 36.87260000000002 z  L 216.744140625 36.87260000000002 L 241.166015625 36.87260000000002 L 241.166015625 36.87260000000002 L 241.166015625 36.87260000000002 L 241.166015625 36.87260000000002 L 241.166015625 36.87260000000002 L 216.744140625 36.87260000000002 z" cy="5.5324400000000225" cx="247.271484375" j="7" val="17" barHeight="31.33916" barWidth="24.421875"></path><path d="M247.271484375 110.61180000000004L247.271484375 88.95960000000005C247.271484375 85.95960000000005 250.271484375 82.95960000000005 253.271484375 82.95960000000005L265.693359375 82.95960000000005C268.693359375 82.95960000000005 271.693359375 85.95960000000005 271.693359375 88.95960000000005L271.693359375 110.61180000000004L247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004C247.271484375 110.61180000000004 247.271484375 110.61180000000004 247.271484375 110.61180000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 247.271484375 110.61180000000004 L 247.271484375 88.95960000000005 C 247.271484375 85.95960000000005 250.271484375 82.95960000000005 253.271484375 82.95960000000005 L 265.693359375 82.95960000000005 C 268.693359375 82.95960000000005 271.693359375 85.95960000000005 271.693359375 88.95960000000005 L 271.693359375 110.61180000000004 z " pathFrom="M 247.271484375 110.61180000000004 L 247.271484375 88.95960000000005 C 247.271484375 85.95960000000005 250.271484375 82.95960000000005 253.271484375 82.95960000000005 L 265.693359375 82.95960000000005 C 268.693359375 82.95960000000005 271.693359375 85.95960000000005 271.693359375 88.95960000000005 L 271.693359375 110.61180000000004 z  L 247.271484375 110.61180000000004 L 271.693359375 110.61180000000004 L 271.693359375 110.61180000000004 L 271.693359375 110.61180000000004 L 271.693359375 110.61180000000004 L 271.693359375 110.61180000000004 L 247.271484375 110.61180000000004 z" cy="82.95860000000005" cx="277.798828125" j="8" val="15" barHeight="27.6522" barWidth="24.421875"></path><path d="M277.798828125 73.74220000000004L277.798828125 52.09000000000003C277.798828125 49.09000000000003 280.798828125 46.09000000000003 283.798828125 46.09000000000003L296.220703125 46.09000000000003C299.220703125 46.09000000000003 302.220703125 49.09000000000003 302.220703125 52.09000000000003L302.220703125 73.74220000000004L277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004C277.798828125 73.74220000000004 277.798828125 73.74220000000004 277.798828125 73.74220000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 277.798828125 73.74220000000004 L 277.798828125 52.09000000000003 C 277.798828125 49.09000000000003 280.798828125 46.09000000000003 283.798828125 46.09000000000003 L 296.220703125 46.09000000000003 C 299.220703125 46.09000000000003 302.220703125 49.09000000000003 302.220703125 52.09000000000003 L 302.220703125 73.74220000000004 z " pathFrom="M 277.798828125 73.74220000000004 L 277.798828125 52.09000000000003 C 277.798828125 49.09000000000003 280.798828125 46.09000000000003 283.798828125 46.09000000000003 L 296.220703125 46.09000000000003 C 299.220703125 46.09000000000003 302.220703125 49.09000000000003 302.220703125 52.09000000000003 L 302.220703125 73.74220000000004 z  L 277.798828125 73.74220000000004 L 302.220703125 73.74220000000004 L 302.220703125 73.74220000000004 L 302.220703125 73.74220000000004 L 302.220703125 73.74220000000004 L 302.220703125 73.74220000000004 L 277.798828125 73.74220000000004 z" cy="46.089000000000034" cx="308.326171875" j="9" val="15" barHeight="27.6522" barWidth="24.421875"></path><path d="M308.326171875 110.61180000000004L308.326171875 77.89872000000005C308.326171875 74.89872000000005 311.326171875 71.89872000000005 314.326171875 71.89872000000005L326.748046875 71.89872000000005C329.748046875 71.89872000000005 332.748046875 74.89872000000005 332.748046875 77.89872000000005L332.748046875 110.61180000000004L308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004C308.326171875 110.61180000000004 308.326171875 110.61180000000004 308.326171875 110.61180000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 308.326171875 110.61180000000004 L 308.326171875 77.89872000000005 C 308.326171875 74.89872000000005 311.326171875 71.89872000000005 314.326171875 71.89872000000005 L 326.748046875 71.89872000000005 C 329.748046875 71.89872000000005 332.748046875 74.89872000000005 332.748046875 77.89872000000005 L 332.748046875 110.61180000000004 z " pathFrom="M 308.326171875 110.61180000000004 L 308.326171875 77.89872000000005 C 308.326171875 74.89872000000005 311.326171875 71.89872000000005 314.326171875 71.89872000000005 L 326.748046875 71.89872000000005 C 329.748046875 71.89872000000005 332.748046875 74.89872000000005 332.748046875 77.89872000000005 L 332.748046875 110.61180000000004 z  L 308.326171875 110.61180000000004 L 332.748046875 110.61180000000004 L 332.748046875 110.61180000000004 L 332.748046875 110.61180000000004 L 332.748046875 110.61180000000004 L 332.748046875 110.61180000000004 L 308.326171875 110.61180000000004 z" cy="71.89772000000005" cx="338.853515625" j="10" val="21" barHeight="38.71308" barWidth="24.421875"></path><path d="M338.853515625 147.48140000000004L338.853515625 127.67268000000004C338.853515625 124.67268000000004 341.853515625 121.67268000000004 344.853515625 121.67268000000004L357.275390625 121.67268000000004C360.275390625 121.67268000000004 363.275390625 124.67268000000004 363.275390625 127.67268000000004L363.275390625 147.48140000000004L338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004C338.853515625 147.48140000000004 338.853515625 147.48140000000004 338.853515625 147.48140000000004 " fill="rgba(233,234,235,1)" fill-opacity="1" stroke="#e9eaeb" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area " index="2" clip-path="url(#gridRectBarMasktq36hm48)" pathTo="M 338.853515625 147.48140000000004 L 338.853515625 127.67268000000004 C 338.853515625 124.67268000000004 341.853515625 121.67268000000004 344.853515625 121.67268000000004 L 357.275390625 121.67268000000004 C 360.275390625 121.67268000000004 363.275390625 124.67268000000004 363.275390625 127.67268000000004 L 363.275390625 147.48140000000004 z " pathFrom="M 338.853515625 147.48140000000004 L 338.853515625 127.67268000000004 C 338.853515625 124.67268000000004 341.853515625 121.67268000000004 344.853515625 121.67268000000004 L 357.275390625 121.67268000000004 C 360.275390625 121.67268000000004 363.275390625 124.67268000000004 363.275390625 127.67268000000004 L 363.275390625 147.48140000000004 z  L 338.853515625 147.48140000000004 L 363.275390625 147.48140000000004 L 363.275390625 147.48140000000004 L 363.275390625 147.48140000000004 L 363.275390625 147.48140000000004 L 363.275390625 147.48140000000004 L 338.853515625 147.48140000000004 z" cy="121.67168000000004" cx="369.380859375" j="11" val="14" barHeight="25.80872" barWidth="24.421875"></path><g class="apexcharts-bar-goals-markers"><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g><g className="apexcharts-bar-goals-groups" class="apexcharts-hidden-element-shown" clip-path="url(#gridRectMarkerMasktq36hm48)"></g></g></g><g class="apexcharts-datalabels" data:realIndex="0"></g><g class="apexcharts-datalabels" data:realIndex="1"></g><g class="apexcharts-datalabels" data:realIndex="2"></g></g><line x1="0" y1="0" x2="366.328125" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line x1="0" y1="0" x2="366.328125" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line><g class="apexcharts-xaxis" transform="translate(0, 0)"><g class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"><text x="15.263671875" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Jan</tspan><title>Jan</title></text><text x="45.791015625" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Feb</tspan><title>Feb</title></text><text x="76.318359375" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Mar</tspan><title>Mar</title></text><text x="106.845703125" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Apr</tspan><title>Apr</title></text><text x="137.373046875" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>May</tspan><title>May</title></text><text x="167.900390625" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Jun</tspan><title>Jun</title></text><text x="198.427734375" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Jul</tspan><title>Jul</title></text><text x="228.955078125" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Aug</tspan><title>Aug</title></text><text x="259.482421875" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Sep</tspan><title>Sep</title></text><text x="290.009765625" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Oct</tspan><title>Oct</title></text><text x="320.537109375" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Nov</tspan><title>Nov</title></text><text x="351.064453125" y="212.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Dec</tspan><title>Dec</title></text></g></g><g class="apexcharts-yaxis-annotations apexcharts-hidden-element-shown"></g><g class="apexcharts-xaxis-annotations apexcharts-hidden-element-shown"></g><g class="apexcharts-point-annotations apexcharts-hidden-element-shown"></g></g></svg></div></div></div></div><div class="absolute bottom-[-10%] right-[5%] rounded-2xl border border-gray-200 bg-white pb-5 shadow-lg"><div style="min-height: 164px;"><div id="apexcharts2izc0udm" class="apexcharts-canvas apexcharts2izc0udm apexcharts-theme-" style="width: 200px; height: 164px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" width="200" height="164"><foreignObject x="0" y="0" width="200" height="164"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml"></div><style type="text/css">
+      .apexcharts-flip-y {
+        transform: scaleY(-1) translateY(-100%);
+        transform-origin: top;
+        transform-box: fill-box;
+      }
+      .apexcharts-flip-x {
+        transform: scaleX(-1);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .apexcharts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .apexcharts-legend.apexcharts-legend-group-horizontal {
+        flex-direction: column;
+      }
+      .apexcharts-legend-group {
+        display: flex;
+      }
+      .apexcharts-legend-group-vertical {
+        flex-direction: column-reverse;
+      }
+      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .apexcharts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+      }
+      .apexcharts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {
+        pointer-events: none;
+      }
+      .apexcharts-legend-marker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 1px;
+      }
+
+      .apexcharts-legend-series.apexcharts-no-click {
+        cursor: auto;
+      }
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {
+        display: none !important;
+      }
+      .apexcharts-inactive-legend {
+        opacity: 0.45;
+      }
+
+    </style></foreignObject><g class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs><clipPath id="gridRectMask2izc0udm"><rect width="200" height="200" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectBarMask2izc0udm"><rect width="206" height="206" x="-3" y="-3" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMask2izc0udm"><rect width="200" height="200" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask2izc0udm"></clipPath><clipPath id="nonForecastMask2izc0udm"></clipPath></defs><g class="apexcharts-radialbar"><g><g class="apexcharts-tracks"><g class="apexcharts-radialbar-track apexcharts-track" rel="1"><path d="M 51.697923823551236 148.30207617644874 A 68.3094512195122 68.3094512195122 0 1 1 148.30207617644876 148.30207617644874 " fill="none" fill-opacity="1" stroke="rgba(233,234,235,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="11.802652439024392" stroke-dasharray="0" class="apexcharts-radialbar-area" id="apexcharts-radialbarTrack-0" data:pathOrig="M 51.697923823551236 148.30207617644874 A 68.3094512195122 68.3094512195122 0 1 1 148.30207617644876 148.30207617644874 "></path></g><g class="apexcharts-radialbar-track apexcharts-track" rel="2"><path d="M 63.837308838372735 136.16269116162727 A 51.141768292682926 51.141768292682926 0 1 1 136.16269116162727 136.16269116162727 " fill="none" fill-opacity="1" stroke="rgba(233,234,235,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="11.802652439024392" stroke-dasharray="0" class="apexcharts-radialbar-area" id="apexcharts-radialbarTrack-1" data:pathOrig="M 63.837308838372735 136.16269116162727 A 51.141768292682926 51.141768292682926 0 1 1 136.16269116162727 136.16269116162727 "></path></g><g class="apexcharts-radialbar-track apexcharts-track" rel="3"><path d="M 75.97669385319423 124.02330614680577 A 33.974085365853654 33.974085365853654 0 1 1 124.02330614680577 124.02330614680577 " fill="none" fill-opacity="1" stroke="rgba(233,234,235,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="11.802652439024392" stroke-dasharray="0" class="apexcharts-radialbar-area" id="apexcharts-radialbarTrack-2" data:pathOrig="M 75.97669385319423 124.02330614680577 A 33.974085365853654 33.974085365853654 0 1 1 124.02330614680577 124.02330614680577 "></path></g></g><g><g class="apexcharts-series apexcharts-radial-series" seriesName="series-1" rel="1" data:realIndex="0"><path d="M 51.697923823551236 148.30207617644874 A 68.3094512195122 68.3094512195122 0 1 1 168.26783894748888 102.38396546758501 " fill="none" fill-opacity="0.85" stroke="rgba(58,90,196,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="12.167682926829269" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-0" data:angle="227" data:value="84" index="0" j="0" data:pathOrig="M 51.697923823551236 148.30207617644874 A 68.3094512195122 68.3094512195122 0 1 1 168.26783894748888 102.38396546758501 "></path></g><g class="apexcharts-series apexcharts-radial-series" seriesName="series-2" rel="2" data:realIndex="1"><path d="M 63.837308838372735 136.16269116162727 A 51.141768292682926 51.141768292682926 0 1 1 136.78830939262411 64.47394257541326 " fill="none" fill-opacity="0.85" stroke="rgba(100,132,238,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="12.167682926829269" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-1" data:angle="181" data:value="67" index="0" j="1" data:pathOrig="M 63.837308838372735 136.16269116162727 A 51.141768292682926 51.141768292682926 0 1 1 136.78830939262411 64.47394257541326 "></path></g><g class="apexcharts-series apexcharts-radial-series" seriesName="series-3" rel="3" data:realIndex="2"><path d="M 75.97669385319423 124.02330614680577 A 33.974085365853654 33.974085365853654 0 0 1 87.27308361667617 68.49977657510672 " fill="none" fill-opacity="0.85" stroke="rgba(153,167,240,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="12.167682926829269" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-2" data:angle="113" data:value="42" index="0" j="2" data:pathOrig="M 75.97669385319423 124.02330614680577 A 33.974085365853654 33.974085365853654 0 0 1 87.27308361667617 68.49977657510672 "></path></g><circle r="23.072759146341472" cx="100" cy="100" class="apexcharts-radialbar-hollow" fill="transparent"></circle></g></g></g><line x1="0" y1="0" x2="200" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line x1="0" y1="0" x2="200" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g></svg></div></div></div></div><div class="flex flex-col items-center justify-center gap-2 rounded-lg p-4"><p class="text-2xl font-medium text-white">Introducing the New Dashboard</p><p class="w-3/5 text-center text-sm font-light text-gray-200">Monitor and track measurable metrics to enhance your brand's online safety.</p></div></div><div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4 flex flex-col items-center justify-center overflow-visible"><div class="relative mb-10 mt-10 flex w-1/2 justify-center overflow-visible"><div class="bg-primary-300/20 rounded-2xl p-5"><div class="rounded-2xl bg-white p-5"><div style="min-height: 295px;"><div id="apexcharts5z71chg6" class="apexcharts-canvas apexcharts5z71chg6 apexcharts-theme-light" style="width: 480px; height: 280px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg apexcharts-zoomable" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: rgb(255, 255, 255);" width="480" height="280"><foreignObject x="0" y="0" width="480" height="280"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml" style="max-height: 140px;"></div><style type="text/css">
+      .apexcharts-flip-y {
+        transform: scaleY(-1) translateY(-100%);
+        transform-origin: top;
+        transform-box: fill-box;
+      }
+      .apexcharts-flip-x {
+        transform: scaleX(-1);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .apexcharts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .apexcharts-legend.apexcharts-legend-group-horizontal {
+        flex-direction: column;
+      }
+      .apexcharts-legend-group {
+        display: flex;
+      }
+      .apexcharts-legend-group-vertical {
+        flex-direction: column-reverse;
+      }
+      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .apexcharts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+      }
+      .apexcharts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {
+        pointer-events: none;
+      }
+      .apexcharts-legend-marker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 1px;
+      }
+
+      .apexcharts-legend-series.apexcharts-no-click {
+        cursor: auto;
+      }
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {
+        display: none !important;
+      }
+      .apexcharts-inactive-legend {
+        opacity: 0.45;
+      }
+
+    </style></foreignObject><rect width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g class="apexcharts-inner apexcharts-graphical" transform="translate(12, 30)"><defs><clipPath id="gridRectMask5z71chg6"><rect width="446.328125" height="212.348" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectBarMask5z71chg6"><rect width="455.328125" height="221.348" x="-4.5" y="-4.5" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMask5z71chg6"><rect width="446.328125" height="212.348" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask5z71chg6"></clipPath><clipPath id="nonForecastMask5z71chg6"></clipPath></defs><line x1="0" y1="0" x2="0" y2="212.348" stroke="#b6b6b6" stroke-dasharray="3" stroke-linecap="butt" class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="212.348" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><line x1="0" y1="212.348" x2="0" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="40.57528409090909" y1="212.348" x2="40.57528409090909" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="81.15056818181819" y1="212.348" x2="81.15056818181819" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="121.72585227272728" y1="212.348" x2="121.72585227272728" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="162.30113636363637" y1="212.348" x2="162.30113636363637" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="202.87642045454547" y1="212.348" x2="202.87642045454547" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="243.45170454545456" y1="212.348" x2="243.45170454545456" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="284.0269886363636" y1="212.348" x2="284.0269886363636" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="324.60227272727275" y1="212.348" x2="324.60227272727275" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="365.17755681818187" y1="212.348" x2="365.17755681818187" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="405.752840909091" y1="212.348" x2="405.752840909091" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><line x1="446.3281250000001" y1="212.348" x2="446.3281250000001" y2="218.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-xaxis-tick"></line><g class="apexcharts-grid"><g class="apexcharts-gridlines-horizontal"><line x1="0" y1="42.4696" x2="446.328125" y2="42.4696" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="84.9392" x2="446.328125" y2="84.9392" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="127.4088" x2="446.328125" y2="127.4088" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="169.8784" x2="446.328125" y2="169.8784" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line></g><g class="apexcharts-gridlines-vertical"></g><line x1="0" y1="212.348" x2="446.328125" y2="212.348" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line><line x1="0" y1="1" x2="0" y2="212.348" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line></g><g class="apexcharts-grid-borders"><line x1="0" y1="0" x2="446.328125" y2="0" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="212.348" x2="446.328125" y2="212.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-linecap="butt" class="apexcharts-gridline"></line><line x1="0" y1="212.348" x2="446.328125" y2="212.348" stroke="#e0e0e0" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt"></line></g><g class="apexcharts-line-series apexcharts-plot-series"><g class="apexcharts-series" zIndex="0" seriesName="Incidents" data:longestSeries="true" rel="1" data:realIndex="0"><path d="M0 212.348L40.57528409090909 203.85408L81.15056818181819 186.86624000000003L121.72585227272728 186.86624000000003L162.30113636363637 199.60712L202.87642045454547 178.37232000000003L243.45170454545456 195.36016000000004L284.0269886363636 169.87840000000003L324.60227272727275 157.13752000000002L365.1775568181818 157.13752000000002L405.75284090909093 165.63144000000003L446.328125 144.39664000000002 " fill="none" fill-opacity="1" stroke="rgba(58,90,196,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="5" stroke-dasharray="0" class="apexcharts-line" index="0" clip-path="url(#gridRectMask5z71chg6)" pathTo="M 0 212.348 L 40.57528409090909 203.85408 L 81.15056818181819 186.86624000000003 L 121.72585227272728 186.86624000000003 L 162.30113636363637 199.60712 L 202.87642045454547 178.37232000000003 L 243.45170454545456 195.36016000000004 L 284.0269886363636 169.87840000000003 L 324.60227272727275 157.13752000000002 L 365.1775568181818 157.13752000000002 L 405.75284090909093 165.63144000000003 L 446.328125 144.39664000000002" pathFrom="M 0 212.348 L 40.57528409090909 203.85408 L 81.15056818181819 186.86624000000003 L 121.72585227272728 186.86624000000003 L 162.30113636363637 199.60712 L 202.87642045454547 178.37232000000003 L 243.45170454545456 195.36016000000004 L 284.0269886363636 169.87840000000003 L 324.60227272727275 157.13752000000002 L 365.1775568181818 157.13752000000002 L 405.75284090909093 165.63144000000003 L 446.328125 144.39664000000002" fill-rule="evenodd"></path><g class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="0"></g></g><g class="apexcharts-series" zIndex="1" seriesName="ResponsexTime" data:longestSeries="true" rel="2" data:realIndex="1"><path d="M0 118.91488000000004L40.57528409090909 131.65576000000004L81.15056818181819 101.92704000000003L121.72585227272728 118.91488000000004L162.30113636363637 89.18616000000003L202.87642045454547 114.66792000000004L243.45170454545456 106.17400000000004L284.0269886363636 97.68008000000003L324.60227272727275 101.92704000000003L365.1775568181818 67.95136000000002L405.75284090909093 63.70440000000002L446.328125 55.21048000000002 " fill="none" fill-opacity="1" stroke="rgba(100,132,238,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="5" stroke-dasharray="0" class="apexcharts-line" index="1" clip-path="url(#gridRectMask5z71chg6)" pathTo="M 0 118.91488000000004 L 40.57528409090909 131.65576000000004 L 81.15056818181819 101.92704000000003 L 121.72585227272728 118.91488000000004 L 162.30113636363637 89.18616000000003 L 202.87642045454547 114.66792000000004 L 243.45170454545456 106.17400000000004 L 284.0269886363636 97.68008000000003 L 324.60227272727275 101.92704000000003 L 365.1775568181818 67.95136000000002 L 405.75284090909093 63.70440000000002 L 446.328125 55.21048000000002" pathFrom="M 0 118.91488000000004 L 40.57528409090909 131.65576000000004 L 81.15056818181819 101.92704000000003 L 121.72585227272728 118.91488000000004 L 162.30113636363637 89.18616000000003 L 202.87642045454547 114.66792000000004 L 243.45170454545456 106.17400000000004 L 284.0269886363636 97.68008000000003 L 324.60227272727275 101.92704000000003 L 365.1775568181818 67.95136000000002 L 405.75284090909093 63.70440000000002 L 446.328125 55.21048000000002" fill-rule="evenodd"></path><g class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="1"></g></g><g class="apexcharts-series" zIndex="2" seriesName="FalsexPositives" data:longestSeries="true" rel="3" data:realIndex="2"><path d="M0 89.18616000000003L40.57528409090909 89.18616000000003L81.15056818181819 89.18616000000003L121.72585227272728 59.45744000000002L162.30113636363637 63.70440000000002L202.87642045454547 72.19832000000002L243.45170454545456 67.95136000000002L284.0269886363636 55.21048000000002L324.60227272727275 42.469600000000014L365.1775568181818 46.716560000000015L405.75284090909093 46.716560000000015L446.328125 25.481760000000037 " fill="none" fill-opacity="1" stroke="rgba(153,167,240,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="5" stroke-dasharray="0" class="apexcharts-line" index="2" clip-path="url(#gridRectMask5z71chg6)" pathTo="M 0 89.18616000000003 L 40.57528409090909 89.18616000000003 L 81.15056818181819 89.18616000000003 L 121.72585227272728 59.45744000000002 L 162.30113636363637 63.70440000000002 L 202.87642045454547 72.19832000000002 L 243.45170454545456 67.95136000000002 L 284.0269886363636 55.21048000000002 L 324.60227272727275 42.469600000000014 L 365.1775568181818 46.716560000000015 L 405.75284090909093 46.716560000000015 L 446.328125 25.481760000000037" pathFrom="M 0 89.18616000000003 L 40.57528409090909 89.18616000000003 L 81.15056818181819 89.18616000000003 L 121.72585227272728 59.45744000000002 L 162.30113636363637 63.70440000000002 L 202.87642045454547 72.19832000000002 L 243.45170454545456 67.95136000000002 L 284.0269886363636 55.21048000000002 L 324.60227272727275 42.469600000000014 L 365.1775568181818 46.716560000000015 L 405.75284090909093 46.716560000000015 L 446.328125 25.481760000000037" fill-rule="evenodd"></path><g class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="2"></g></g><g class="apexcharts-datalabels" data:realIndex="0"></g><g class="apexcharts-datalabels" data:realIndex="1"></g><g class="apexcharts-datalabels" data:realIndex="2"></g></g><line x1="0" y1="0" x2="446.328125" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line x1="0" y1="0" x2="446.328125" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line><g class="apexcharts-xaxis" transform="translate(0, 0)"><g class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"><text x="0" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="40.57528409090909" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Jan</tspan><title>Jan</title></text><text x="81.15056818181819" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="121.72585227272727" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Mar</tspan><title>Mar</title></text><text x="162.30113636363637" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="202.87642045454544" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>May</tspan><title>May</title></text><text x="243.45170454545456" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="284.0269886363637" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Jul</tspan><title>Jul</title></text><text x="324.6022727272728" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="365.1775568181819" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Sep</tspan><title>Sep</title></text><text x="405.75284090909105" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan></tspan><title></title></text><text x="446.32812500000017" y="240.348" text-anchor="middle" dominant-baseline="auto" font-size="12px" font-family="Helvetica, Arial, sans-serif" font-weight="400" fill="#000000" class="apexcharts-text apexcharts-xaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan>Nov</tspan><title>Nov</title></text></g></g><g class="apexcharts-yaxis-annotations apexcharts-hidden-element-shown"></g><g class="apexcharts-xaxis-annotations apexcharts-hidden-element-shown"></g><g class="apexcharts-point-annotations apexcharts-hidden-element-shown"></g></g><rect width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-zoom-rect"></rect><rect width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe" class="apexcharts-selection-rect"></rect></svg></div></div></div></div><div class="absolute bottom-[-10%] right-[0%] rounded-2xl border border-gray-200 bg-white pb-2 pl-5 pr-5 pt-2 shadow-lg"><p class="text-center text-lg font-medium text-gray-900">Takedown Time</p><div class="flex items-center justify-between"><div class="flex flex-col justify-between"><div class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256" class="text-green-700"><path d="M240,128v64a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h44.69L136,107.31l-34.34,34.35a8,8,0,0,1-11.32,0l-72-72A8,8,0,0,1,29.66,58.34L96,124.69l34.34-34.35a8,8,0,0,1,11.32,0L224,172.69V128a8,8,0,0,1,16,0Z"></path></svg><p class="text-lg font-medium text-gray-900">4.8%</p></div><p class="text-sm font-light text-gray-500">vs last month</p></div><div style="min-height: 43px;"><div id="apexcharts0496wbpz" class="apexcharts-canvas apexcharts0496wbpz apexcharts-theme-" style="width: 40px; height: 43px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" width="40" height="43"><foreignObject x="0" y="0" width="40" height="43"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml"></div><style type="text/css">
+      .apexcharts-flip-y {
+        transform: scaleY(-1) translateY(-100%);
+        transform-origin: top;
+        transform-box: fill-box;
+      }
+      .apexcharts-flip-x {
+        transform: scaleX(-1);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .apexcharts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .apexcharts-legend.apexcharts-legend-group-horizontal {
+        flex-direction: column;
+      }
+      .apexcharts-legend-group {
+        display: flex;
+      }
+      .apexcharts-legend-group-vertical {
+        flex-direction: column-reverse;
+      }
+      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .apexcharts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+      }
+      .apexcharts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {
+        pointer-events: none;
+      }
+      .apexcharts-legend-marker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 1px;
+      }
+
+      .apexcharts-legend-series.apexcharts-no-click {
+        cursor: auto;
+      }
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {
+        display: none !important;
+      }
+      .apexcharts-inactive-legend {
+        opacity: 0.45;
+      }
+
+    </style></foreignObject><g class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs><clipPath id="gridRectMask0496wbpz"><rect width="40" height="40" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectBarMask0496wbpz"><rect width="46" height="46" x="-3" y="-3" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMask0496wbpz"><rect width="40" height="40" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask0496wbpz"></clipPath><clipPath id="nonForecastMask0496wbpz"></clipPath></defs><g class="apexcharts-pie"><g transform="translate(0, 0) scale(1)"><g class="apexcharts-slices"><g class="apexcharts-series apexcharts-pie-series" seriesName="series-1" rel="1" data:realIndex="0"><path d="M 20 6.487804878048777 A 13.512195121951223 13.512195121951223 0 0 1 25.348166856566028 32.40872790772733 L 21.58321184923615 23.67334183550051 C 20.791605924618075 21.836670917750254 20 18 20 16 L 20 6.487804878048777 " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-pie-slice-0" index="0" j="0" data:angle="156.68393782383419" data:startAngle="0" data:strokeWidth="2" data:value="84" data:pathOrig="M 20 6.487804878048777 A 13.512195121951223 13.512195121951223 0 0 1 25.348166856566028 32.40872790772733 L 21.58321184923615 23.67334183550051 C 20.791605924618075 21.836670917750254 20 18 20 16 L 20 6.487804878048777 "></path></g><g class="apexcharts-series apexcharts-pie-series" seriesName="series-2" rel="2" data:realIndex="1"><path d="M 25.348166856566028 32.40872790772733 A 13.512195121951223 13.512195121951223 0 0 1 6.766546752300524 17.269591211075785 L 16.082515645085355 19.19172014190691 C 18.041257822542676 19.595860070953456 20.791605924618075 21.836670917750254 21.58321184923615 23.67334183550051 L 25.348166856566028 32.40872790772733 " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-pie-slice-1" index="0" j="1" data:angle="124.97409326424872" data:startAngle="156.68393782383419" data:strokeWidth="2" data:value="67" data:pathOrig="M 25.348166856566028 32.40872790772733 A 13.512195121951223 13.512195121951223 0 0 1 6.766546752300524 17.269591211075785 L 16.082515645085355 19.19172014190691 C 18.041257822542676 19.595860070953456 20.791605924618075 21.836670917750254 21.58321184923615 23.67334183550051 L 25.348166856566028 32.40872790772733 "></path></g><g class="apexcharts-series apexcharts-pie-series" seriesName="series-3" rel="3" data:realIndex="2"><path d="M 6.766546752300524 17.269591211075785 A 13.512195121951223 13.512195121951223 0 0 1 19.99764167707147 6.487805083851276 L 19.999301868302744 16.000000060923483 C 19.999650934151372 18.00000003046174 18.041257822542676 19.595860070953456 16.082515645085355 19.19172014190691 L 6.766546752300524 17.269591211075785 " fill="rgba(153,167,240,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-pie-slice-2" index="0" j="2" data:angle="78.34196891191709" data:startAngle="281.6580310880829" data:strokeWidth="2" data:value="42" data:pathOrig="M 6.766546752300524 17.269591211075785 A 13.512195121951223 13.512195121951223 0 0 1 19.99764167707147 6.487805083851276 L 19.999301868302744 16.000000060923483 C 19.999650934151372 18.00000003046174 18.041257822542676 19.595860070953456 16.082515645085355 19.19172014190691 L 6.766546752300524 17.269591211075785 "></path></g></g></g></g><line x1="0" y1="0" x2="40" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line x1="0" y1="0" x2="40" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g></svg></div></div></div></div><div class="absolute left-[0%] top-[-10%] rounded-2xl border border-gray-200 bg-white pb-2 pl-5 pr-5 pt-2 shadow-lg"><p class="text-center text-lg font-medium text-gray-900">Successful Takedowns</p><div class="flex items-center justify-between"><div class="flex flex-col justify-between"><div class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256" class="text-green-700"><path d="M240,56v64a8,8,0,0,1-16,0V75.31l-82.34,82.35a8,8,0,0,1-11.32,0L96,123.31,29.66,189.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0L136,140.69,212.69,64H168a8,8,0,0,1,0-16h64A8,8,0,0,1,240,56Z"></path></svg><p class="text-lg font-medium text-gray-900">2.5%</p></div><p class="text-sm font-light text-gray-500">vs last month</p></div><div style="min-height: 43px;"><div id="apexcharts9dvv149l" class="apexcharts-canvas apexcharts9dvv149l apexcharts-theme-" style="width: 40px; height: 43px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" width="40" height="43"><foreignObject x="0" y="0" width="40" height="43"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml"></div><style type="text/css">
+      .apexcharts-flip-y {
+        transform: scaleY(-1) translateY(-100%);
+        transform-origin: top;
+        transform-box: fill-box;
+      }
+      .apexcharts-flip-x {
+        transform: scaleX(-1);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .apexcharts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .apexcharts-legend.apexcharts-legend-group-horizontal {
+        flex-direction: column;
+      }
+      .apexcharts-legend-group {
+        display: flex;
+      }
+      .apexcharts-legend-group-vertical {
+        flex-direction: column-reverse;
+      }
+      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+        justify-content: center;
+        align-items: center;
+      }
+      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .apexcharts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+      }
+      .apexcharts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .apexcharts-legend-text *, .apexcharts-legend-marker * {
+        pointer-events: none;
+      }
+      .apexcharts-legend-marker {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 1px;
+      }
+
+      .apexcharts-legend-series.apexcharts-no-click {
+        cursor: auto;
+      }
+      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {
+        display: none !important;
+      }
+      .apexcharts-inactive-legend {
+        opacity: 0.45;
+      }
+
+    </style></foreignObject><g class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs><clipPath id="gridRectMask9dvv149l"><rect width="40" height="40" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectBarMask9dvv149l"><rect width="46" height="46" x="-3" y="-3" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMask9dvv149l"><rect width="40" height="40" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask9dvv149l"></clipPath><clipPath id="nonForecastMask9dvv149l"></clipPath></defs><g class="apexcharts-pie"><g transform="translate(0, 0) scale(1)"><circle r="8.782926829268295" cx="20" cy="20" fill="transparent"></circle><g class="apexcharts-slices"><g class="apexcharts-series apexcharts-pie-series" seriesName="series-1" rel="1" data:realIndex="0"><path d="M 20 6.487804878048777 A 13.512195121951223 13.512195121951223 0 0 1 25.348166856566028 32.40872790772733 L 23.476308456767917 28.065673140022767 A 8.782926829268295 8.782926829268295 0 0 0 20 11.217073170731705 L 20 6.487804878048777 z " fill="rgba(58,90,196,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-donut-slice-0" index="0" j="0" data:angle="156.68393782383419" data:startAngle="0" data:strokeWidth="2" data:value="84" data:pathOrig="M 20 6.487804878048777 A 13.512195121951223 13.512195121951223 0 0 1 25.348166856566028 32.40872790772733 L 23.476308456767917 28.065673140022767 A 8.782926829268295 8.782926829268295 0 0 0 20 11.217073170731705 L 20 6.487804878048777 z "></path></g><g class="apexcharts-series apexcharts-pie-series" seriesName="series-2" rel="2" data:realIndex="1"><path d="M 25.348166856566028 32.40872790772733 A 13.512195121951223 13.512195121951223 0 0 1 6.766546752300524 17.269591211075785 L 11.39825538899534 18.22523428719926 A 8.782926829268295 8.782926829268295 0 0 0 23.476308456767917 28.065673140022767 L 25.348166856566028 32.40872790772733 z " fill="rgba(100,132,238,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-donut-slice-1" index="0" j="1" data:angle="124.97409326424872" data:startAngle="156.68393782383419" data:strokeWidth="2" data:value="67" data:pathOrig="M 25.348166856566028 32.40872790772733 A 13.512195121951223 13.512195121951223 0 0 1 6.766546752300524 17.269591211075785 L 11.39825538899534 18.22523428719926 A 8.782926829268295 8.782926829268295 0 0 0 23.476308456767917 28.065673140022767 L 25.348166856566028 32.40872790772733 z "></path></g><g class="apexcharts-series apexcharts-pie-series" seriesName="series-3" rel="3" data:realIndex="2"><path d="M 6.766546752300524 17.269591211075785 A 13.512195121951223 13.512195121951223 0 0 1 19.99764167707147 6.487805083851276 L 19.998467090096455 11.21707330450333 A 8.782926829268295 8.782926829268295 0 0 0 11.39825538899534 18.22523428719926 L 6.766546752300524 17.269591211075785 z " fill="rgba(153,167,240,1)" fill-opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-donut-slice-2" index="0" j="2" data:angle="78.34196891191709" data:startAngle="281.6580310880829" data:strokeWidth="2" data:value="42" data:pathOrig="M 6.766546752300524 17.269591211075785 A 13.512195121951223 13.512195121951223 0 0 1 19.99764167707147 6.487805083851276 L 19.998467090096455 11.21707330450333 A 8.782926829268295 8.782926829268295 0 0 0 11.39825538899534 18.22523428719926 L 6.766546752300524 17.269591211075785 z "></path></g></g></g></g><line x1="0" y1="0" x2="40" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line x1="0" y1="0" x2="40" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g><g class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"></g></svg></div></div></div></div></div><div class="flex flex-col items-center justify-center gap-2 rounded-lg p-4"><p class="text-2xl font-medium text-white">In-Depth Incident Analysis</p><p class="w-3/5 text-center text-sm font-light text-gray-200">Track, analyse, and respond to incidents with actionable data, enabling informed decisions and prompt action.</p></div></div></div></div></div><div class="z-10 flex items-center gap-16"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" class="cursor-pointer text-gray-200 transition-colors hover:text-white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg><div class="flex gap-2"><button class="h-2 w-2 rounded-full transition-colors bg-white"></button><button class="h-2 w-2 rounded-full transition-colors bg-white/50"></button><button class="h-2 w-2 rounded-full transition-colors bg-white/50"></button></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" class="cursor-pointer text-gray-200 transition-colors hover:text-white" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg></div></div></div></main><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed z-[9999] flex flex-col gap-4 p-12 outline-none   right-0 top-0 flex-col-reverse  "></ol></div><script src="/_next/static/chunks/webpack.js?v=1763791091566" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:HL[\"/_next/static/css/app/layout.css?v=1763791091566\",\"style\"]\n0:D{\"name\":\"r2\",\"env\":\"Server\"}\n"])</script><script>self.__next_f.push([1,"3:I[\"(app-pages-browser)/./node_modules/next/dist/client/components/app-router.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n5:I[\"(app-pages-browser)/./node_modules/next/dist/client/components/client-page.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"ClientPageRoot\"]\n6:I[\"(app-pages-browser)/./src/app/login/page.tsx\",[\"app/login/page\",\"static/chunks/app/login/page.js\"],\"default\",1]\n7:I[\"(app-pages-browser)/./node_modules/next/dist/client/components/layout-router.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n8:I[\"(app-pages-browser)/./node_modules/next/dist/client/components/render-from-template-context.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\na:I[\"(app-pages-browser)/./src/app/providers.tsx\",[\"app/layout\",\"static/chunks/app/layout.js\"],\"Providers\"]\nb:I[\"(app-pages-browser)/./src/app/SidebarController.tsx\",[\"app/layout\",\"static/chunks/app/layout.js\"],\"default\"]\nf:I[\"(app-pages-browser)/./src/app/global-error.tsx\",[\"app/global-error\",\"static/chunks/app/global-error.js\"],\"default\"]\n4:D{\"name\":\"\",\"env\":\"Server\"}\n9:D{\"name\":\"RootLayout\",\"env\":\"Server\"}\nc:D{\"name\":\"NotFound\",\"env\":\"Server\"}\nc:[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineH"])</script><script>self.__next_f.push([1,"eight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]]\n9:[\"$\",\"html\",null,{\"lang\":\"en\",\"className\":\"__variable_f367f3\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$La\",null,{\"children\":[\"$\",\"$Lb\",null,{\"children\":[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$c\",\"notFoundStyles\":[]}]}]}]}]}]\nd:D{\"name\":\"rQ\",\"env\":\"Server\"}\nd:null\ne:D{\"name\":\"\",\"env\":\"Server\"}\n10:[]\n0:[\"$\",\"$L3\",null,{\"buildId\":\"development\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"login\"],\"initialTree\":[\"\",{\"children\":[\"login\",{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"login\",{\"children\":[\"__PAGE__\",{},[[\"$L4\",[\"$\",\"$L5\",null,{\"props\":{\"params\":{},\"searchParams\":{}},\"Component\":\"$6\"}],null],null],null]},[null,[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"login\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/app/layout.css?v=1763791091566\",\"precedence\":\"next_static/css/app/layout.css\",\"crossOrigin\":\"$undefined\"}]],\"$9\"],null],null],\"couldBeIntercepted\":false,\"initialHead\":[\"$d\",\"$Le\"],\"globalErrorComponent\":\"$f\",\"missingSlots\":\"$W10\"}]\n"])</script><script>self.__next_f.push([1,"e:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"PhishFort | Dashboard\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"PhishFort management dashboard\"}],[\"$\",\"link\",\"4\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\"}],[\"$\",\"meta\",\"5\",{\"name\":\"next-size-adjust\"}]]\n4:null\n"])</script><protonpass-root-7ea3 data-protonpass-role="root" data-protonpass-theme="dark"></protonpass-root-7ea3><next-route-announcer style="position: absolute;"></next-route-announcer></body></html>

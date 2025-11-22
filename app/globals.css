@@ -3,34 +3,38 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply min-h-screen;
+  }
+
   body {
-    @apply text-gray-900 bg-white;
+    @apply min-h-screen text-gray-900 bg-slate-50;
   }
-  
+
   h1 {
-    @apply text-4xl font-bold mt-8 mb-4;
+    @apply text-4xl font-bold mt-8 mb-4 text-primary-800;
   }
-  
+
   h2 {
-    @apply text-3xl font-bold mt-6 mb-3;
+    @apply text-3xl font-bold mt-6 mb-3 text-primary-700;
   }
-  
+
   h3 {
-    @apply text-2xl font-semibold mt-4 mb-2;
+    @apply text-2xl font-semibold mt-4 mb-2 text-primary-700;
   }
-  
+
   h4 {
-    @apply text-xl font-semibold mt-3 mb-2;
+    @apply text-xl font-semibold mt-3 mb-2 text-primary-600;
   }
-  
+
   p {
-    @apply mb-4 leading-relaxed;
+    @apply mb-4 leading-relaxed text-gray-700;
   }
-  
+
   a {
-    @apply text-blue-600 hover:text-blue-800 underline;
+    @apply text-primary-500 hover:text-primary-700 underline;
   }
-  
+
   ul {
     @apply mb-4 ml-6 list-disc list-outside;
   }
@@ -38,32 +42,51 @@
   ol {
     @apply mb-4 ml-6 list-decimal list-outside;
   }
-  
+
   li {
-    @apply mb-2;
+    @apply mb-2 text-gray-700;
   }
-  
+
   table {
-    @apply w-full border-collapse mb-4;
+    @apply w-full border-collapse mb-4 rounded-lg overflow-hidden;
   }
-  
+
   th {
-    @apply bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold;
+    @apply bg-primary-50 border border-primary-100 px-4 py-3 text-left font-semibold text-primary-800;
   }
-  
+
   td {
-    @apply border border-gray-300 px-4 py-2;
+    @apply border border-gray-200 px-4 py-3 bg-white;
   }
-  
+
   code {
-    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+    @apply bg-primary-50 text-primary-700 px-2 py-1 rounded text-sm font-mono;
   }
-  
+
   pre {
-    @apply bg-gray-900 text-gray-100 p-4 rounded overflow-x-auto mb-4;
+    @apply bg-primary-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
   }
-  
+
   blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic my-4;
+    @apply border-l-4 border-primary-400 pl-4 italic my-4 bg-primary-50 py-3 pr-4 rounded-r-lg text-gray-700;
+  }
+}
+
+@layer components {
+  /* Hexagon background pattern animation */
+  .hex-pattern-bg {
+    background-image: url('/hex-pattern.svg');
+    background-size: 200px;
+    background-repeat: repeat;
+    animation: hexFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes hexFloat {
+    0%, 100% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 50px 25px;
+    }
   }
 }

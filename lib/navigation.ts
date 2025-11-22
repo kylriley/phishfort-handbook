@@ -15,6 +15,10 @@ export const navigation: NavItem[] = [
     href: '/getting-started',
   },
   {
+    title: 'Quick Reference',
+    href: '/quick-reference',
+  },
+  {
     title: 'Evidence Guidelines',
     href: '/evidence-guidelines',
   },
@@ -34,87 +38,87 @@ export const navigation: NavItem[] = [
         title: 'Phone Attacks',
         href: '/phone-attacks',
       },
-    ],
-  },
-  {
-    title: 'Social Media',
-    href: '/social-media',
-    children: [
       {
-        title: 'Facebook',
-        href: '/social-media/facebook',
+        title: 'Social Media',
+        href: '/social-media',
+        children: [
+          {
+            title: 'Facebook',
+            href: '/social-media/facebook',
+          },
+          {
+            title: 'Twitter/X',
+            href: '/social-media/twitter',
+          },
+          {
+            title: 'TikTok',
+            href: '/social-media/tiktok',
+          },
+          {
+            title: 'LinkedIn',
+            href: '/social-media/linkedin',
+          },
+          {
+            title: 'YouTube',
+            href: '/social-media/youtube',
+          },
+        ],
       },
       {
-        title: 'Twitter/X',
-        href: '/social-media/twitter',
+        title: 'Messaging',
+        href: '/messaging',
+        children: [
+          {
+            title: 'WhatsApp',
+            href: '/messaging/whatsapp',
+          },
+          {
+            title: 'Telegram',
+            href: '/messaging/telegram',
+          },
+          {
+            title: 'Discord',
+            href: '/messaging/discord',
+          },
+        ],
       },
       {
-        title: 'TikTok',
-        href: '/social-media/tiktok',
-      },
-      {
-        title: 'LinkedIn',
-        href: '/social-media/linkedin',
-      },
-      {
-        title: 'YouTube',
-        href: '/social-media/youtube',
-      },
-    ],
-  },
-  {
-    title: 'Messaging',
-    href: '/messaging',
-    children: [
-      {
-        title: 'WhatsApp',
-        href: '/messaging/whatsapp',
-      },
-      {
-        title: 'Telegram',
-        href: '/messaging/telegram',
-      },
-      {
-        title: 'Discord',
-        href: '/messaging/discord',
-      },
-    ],
-  },
-  {
-    title: 'Other Platforms',
-    href: '#',
-    children: [
-      {
-        title: 'IP Reporting',
-        href: '/other-platforms/ip-reporting',
-      },
-      {
-        title: 'GitHub',
-        href: '/other-platforms/github',
-      },
-      {
-        title: 'GitBook',
-        href: '/other-platforms/gitbook',
-      },
-      {
-        title: 'Scribd',
-        href: '/other-platforms/scribd',
-      },
-      {
-        title: 'APK Cases',
-        href: '/other-platforms/apk',
-      },
-      {
-        title: 'Browser Extensions',
-        href: '/other-platforms/browser-extensions',
-      },
-      {
-        title: 'Google Ads',
-        href: '/other-platforms/google-ads',
-      },
-      {
-        title: 'Search Engines',
-        href: '/other-platforms/search-engines',
+        title: 'Other Platforms',
+        href: '#',
+        children: [
+          {
+            title: 'IP Reporting',
+            href: '/other-platforms/ip-reporting',
+          },
+          {
+            title: 'GitHub',
+            href: '/other-platforms/github',
+          },
+          {
+            title: 'GitBook',
+            href: '/other-platforms/gitbook',
+          },
+          {
+            title: 'Scribd',
+            href: '/other-platforms/scribd',
+          },
+          {
+            title: 'APK Cases',
+            href: '/other-platforms/apk',
+          },
+          {
+            title: 'Browser Extensions',
+            href: '/other-platforms/browser-extensions',
+          },
+          {
+            title: 'Google Ads',
+            href: '/other-platforms/google-ads',
+          },
+          {
+            title: 'Search Engines',
+            href: '/other-platforms/search-engines',
+          },
+        ],
       },
     ],
   },
