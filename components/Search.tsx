@@ -20,6 +20,8 @@ export function Search() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [index, setIndex] = useState<any>(null);
   const [documents, setDocuments] = useState<SearchResult[]>([]);
+  const [isIndexLoading, setIsIndexLoading] = useState(true);
+  const [indexError, setIndexError] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -35,17 +37,28 @@ export function Search() {
       context: true
     });
 
+    setIsIndexLoading(true);
+    setIndexError(false);
+
     // Fetch search index data
     fetch(`${basePath}/search-index.json`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch search index');
+        return res.json();
+      })
       .then(data => {
         data.forEach((doc: SearchResult, idx: number) => {
           searchIndex.add(idx, `${doc.title} ${doc.content}`);
         });
         setIndex(searchIndex);
         setDocuments(data);
+        setIsIndexLoading(false);
       })
-      .catch(err => console.error('Failed to load search index:', err));
+      .catch(err => {
+        console.error('Failed to load search index:', err);
+        setIsIndexLoading(false);
+        setIndexError(true);
+      });
   }, []);
 
   // Update dropdown position
@@ -64,9 +77,17 @@ export function Search() {
   const handleSearch = useCallback((searchQuery: string) => {
     setQuery(searchQuery);
 
-    if (!searchQuery.trim() || !index) {
+    if (!searchQuery.trim()) {
       setResults([]);
       setIsOpen(false);
+      return;
+    }
+
+    // Keep isOpen true so user sees loading/error/no-results state
+    setIsOpen(true);
+
+    if (!index) {
+      setResults([]);
       return;
     }
 
@@ -76,8 +97,19 @@ export function Search() {
     });
     const resultDocs = searchResults.map((idx: number) => documents[idx]).filter(Boolean);
     setResults(resultDocs);
-    setIsOpen(true);
   }, [index, documents]);
+
+  // Re-run search when index loads (if there's already a query)
+  useEffect(() => {
+    if (index && query.trim()) {
+      const searchResults = index.search(query, {
+        limit: 15,
+        suggest: true
+      });
+      const resultDocs = searchResults.map((idx: number) => documents[idx]).filter(Boolean);
+      setResults(resultDocs);
+    }
+  }, [index, documents, query]);
 
   // Handle result selection
   const handleSelectResult = (href: string) => {
@@ -234,8 +266,30 @@ export function Search() {
               </div>
             )}
 
+            {/* Mobile loading state */}
+            {isOpen && query && isIndexLoading && (
+              <div className="mt-4 bg-white rounded-xl shadow-xl px-4 py-6 text-center">
+                <svg className="w-8 h-8 mx-auto text-primary-400 mb-3 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p className="text-sm text-gray-600">Loading search...</p>
+              </div>
+            )}
+
+            {/* Mobile error state */}
+            {isOpen && query && !isIndexLoading && indexError && (
+              <div className="mt-4 bg-white rounded-xl shadow-xl px-4 py-6 text-center">
+                <svg className="w-12 h-12 mx-auto text-red-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <p className="text-sm text-gray-600">Search unavailable</p>
+                <p className="text-xs text-gray-400 mt-1">Please try again later</p>
+              </div>
+            )}
+
             {/* Mobile no results */}
-            {isOpen && query && results.length === 0 && (
+            {isOpen && query && !isIndexLoading && !indexError && results.length === 0 && (
               <div className="mt-4 bg-white rounded-xl shadow-xl px-4 py-6 text-center">
                 <svg className="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -322,8 +376,46 @@ export function Search() {
         </>
       )}
 
+      {/* Desktop: Loading State */}
+      {isOpen && query && isIndexLoading && !isExpanded && (
+        <div
+          ref={dropdownRef}
+          className="hidden md:block fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] px-4 py-6 text-center"
+          style={{
+            top: `${dropdownPosition.top}px`,
+            left: `${dropdownPosition.left}px`,
+            width: `${dropdownPosition.width}px`
+          }}
+        >
+          <svg className="w-8 h-8 mx-auto text-primary-400 mb-3 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <p className="text-sm text-gray-600">Loading search...</p>
+        </div>
+      )}
+
+      {/* Desktop: Error State */}
+      {isOpen && query && !isIndexLoading && indexError && !isExpanded && (
+        <div
+          ref={dropdownRef}
+          className="hidden md:block fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] px-4 py-6 text-center"
+          style={{
+            top: `${dropdownPosition.top}px`,
+            left: `${dropdownPosition.left}px`,
+            width: `${dropdownPosition.width}px`
+          }}
+        >
+          <svg className="w-12 h-12 mx-auto text-red-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <p className="text-sm text-gray-600">Search unavailable</p>
+          <p className="text-xs text-gray-400 mt-1">Please try again later</p>
+        </div>
+      )}
+
       {/* Desktop: No Results */}
-      {isOpen && query && results.length === 0 && !isExpanded && (
+      {isOpen && query && !isIndexLoading && !indexError && results.length === 0 && !isExpanded && (
         <div
           ref={dropdownRef}
           className="hidden md:block fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] px-4 py-6 text-center"
