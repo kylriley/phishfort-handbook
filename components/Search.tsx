@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import FlexSearch from 'flexsearch';
 
@@ -28,8 +29,14 @@ function MobileSearch({
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+
+  // Track mount state for portal
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Focus input when modal opens
   useEffect(() => {
@@ -91,8 +98,8 @@ function MobileSearch({
         </svg>
       </button>
 
-      {/* Full Screen Modal - iOS Safari compatible */}
-      {isOpen && (
+      {/* Full Screen Modal - rendered via portal to escape header's overflow:hidden */}
+      {isOpen && mounted && createPortal(
         <div
           className="fixed z-[10001] bg-white"
           style={{
@@ -226,7 +233,8 @@ function MobileSearch({
               </div>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
