@@ -91,11 +91,26 @@ function MobileSearch({
         </svg>
       </button>
 
-      {/* Full Screen Modal */}
+      {/* Full Screen Modal - iOS Safari compatible */}
       {isOpen && (
-        <div className="fixed inset-0 z-[10001] flex flex-col bg-white">
-          {/* Header with search input */}
-          <div className="flex-shrink-0 bg-primary-800 px-4 py-3 shadow-lg">
+        <div
+          className="fixed z-[10001] bg-white"
+          style={{
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: '100%',
+            width: '100%',
+            position: 'fixed',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {/* Header with search input - fixed height */}
+          <div
+            className="bg-primary-800 px-4 py-3 shadow-lg"
+            style={{ position: 'relative', zIndex: 2 }}
+          >
             <div className="flex items-center gap-3">
               <div className="relative flex-1">
                 <input
@@ -109,6 +124,7 @@ function MobileSearch({
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"
+                  style={{ fontSize: '16px' }} /* Prevents iOS zoom on focus */
                 />
                 <svg className="absolute left-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -124,12 +140,23 @@ function MobileSearch({
             </div>
           </div>
 
-          {/* Results Area */}
-          <div className="flex-1 overflow-y-auto bg-white">
+          {/* Results Area - absolutely positioned below header */}
+          <div
+            className="bg-white"
+            style={{
+              position: 'absolute',
+              top: '62px',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
             {/* Loading State */}
             {!isReady && !hasError && (
-              <div className="flex flex-col items-center justify-center py-16 px-4">
-                <svg className="w-10 h-10 text-primary-400 animate-spin mb-4" fill="none" viewBox="0 0 24 24">
+              <div className="py-16 px-4 text-center">
+                <svg className="w-10 h-10 text-primary-400 animate-spin mb-4 mx-auto" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
@@ -139,8 +166,8 @@ function MobileSearch({
 
             {/* Error State */}
             {hasError && (
-              <div className="flex flex-col items-center justify-center py-16 px-4">
-                <svg className="w-12 h-12 text-red-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="py-16 px-4 text-center">
+                <svg className="w-12 h-12 text-red-400 mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
                 <p className="text-gray-600 font-medium">Search unavailable</p>
@@ -150,8 +177,8 @@ function MobileSearch({
 
             {/* Empty State - No Query */}
             {isReady && !hasError && !query && (
-              <div className="flex flex-col items-center justify-center py-16 px-4">
-                <svg className="w-12 h-12 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="py-16 px-4 text-center">
+                <svg className="w-12 h-12 text-gray-300 mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <p className="text-gray-500">Type to search documentation</p>
@@ -160,8 +187,8 @@ function MobileSearch({
 
             {/* No Results */}
             {isReady && !hasError && query && results.length === 0 && (
-              <div className="flex flex-col items-center justify-center py-16 px-4">
-                <svg className="w-12 h-12 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="py-16 px-4 text-center">
+                <svg className="w-12 h-12 text-gray-300 mb-4 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <p className="text-gray-600 font-medium">No results found</p>
