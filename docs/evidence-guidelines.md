@@ -55,7 +55,7 @@ For **nominative trademark usage**, the following elements must be present:
 - Only so much of the trademark can be used as is needed to identify the trademark owner and no more.
 
 {% callout type="tip" %}
-**Reference**: [Trademark Fair Use Definition](https://www.trademarklawerfirm.com/what-is-trademark-fairuse/)
+**Reference**: [Trademark Fair Use Definition](https://www.trademarklawyerfirm.com/what-is-trademark-fair-use/)
 {% /callout %}
 
 ---

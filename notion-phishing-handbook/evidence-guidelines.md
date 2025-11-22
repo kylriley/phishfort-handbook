@@ -51,7 +51,7 @@ For **nominative trademark usage**, the following elements must be present:
 
 > 💡 **Tip**
 >
-> **Reference**: [Trademark Fair Use Definition](https://www.trademarklawerfirm.com/what-is-trademark-fairuse/)
+> **Reference**: [Trademark Fair Use Definition](https://www.trademarklawyerfirm.com/what-is-trademark-fair-use/)
 
 ---
 
