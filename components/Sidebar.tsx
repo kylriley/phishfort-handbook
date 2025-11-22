@@ -90,10 +90,19 @@ function NavItemComponent({ item, depth = 0, pageHeadings }: { item: NavItem; de
   );
 }
 
-export function Sidebar() {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+interface SidebarProps {
+  isMobileOpen: boolean;
+  onClose: () => void;
+}
+
+export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
   const [pageHeadings, setPageHeadings] = useState<Heading[]>([]);
   const pathname = usePathname();
+
+  // Close sidebar when route changes on mobile
+  useEffect(() => {
+    onClose();
+  }, [pathname, onClose]);
 
   // Extract headings from the current page
   useEffect(() => {
@@ -129,53 +138,23 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile menu button */}
-      <button
-        onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
-        aria-label="Toggle menu"
-      >
-        <svg
-          className="w-6 h-6 text-primary-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          {isMobileOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          )}
-        </svg>
-      </button>
-
       {/* Backdrop for mobile */}
       {isMobileOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-primary-900/50 backdrop-blur-sm z-30"
-          onClick={() => setIsMobileOpen(false)}
+          onClick={onClose}
         />
       )}
 
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:relative left-0 top-0 h-screen lg:h-auto lg:min-h-full lg:self-stretch w-64 bg-slate-50 border-r border-gray-200
-          overflow-y-auto z-20 transition-transform lg:flex-shrink-0 shadow-sm
+          fixed lg:sticky left-0 top-[60px] lg:top-0 h-[calc(100vh-60px)] lg:h-auto lg:max-h-screen lg:self-stretch w-64 bg-slate-50 border-r border-gray-200
+          overflow-y-auto z-40 lg:z-20 transition-transform lg:flex-shrink-0 shadow-sm
           ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
-        <div className="p-4 pt-20 lg:pt-6 pb-6">
+        <div className="p-4 pt-4 lg:pt-6 pb-6">
           <nav className="space-y-1">
             {navigation.map((item, index) => (
               <NavItemComponent key={index} item={item} pageHeadings={pageHeadings} />

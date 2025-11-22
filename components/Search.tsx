@@ -15,11 +15,13 @@ export function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [index, setIndex] = useState<any>(null);
   const [documents, setDocuments] = useState<SearchResult[]>([]);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   // Initialize search index
@@ -121,9 +123,131 @@ export function Search() {
     return () => window.removeEventListener('scroll', handleScroll, true);
   }, [isOpen]);
 
+  // Handle closing mobile search
+  const closeMobileSearch = useCallback(() => {
+    setIsExpanded(false);
+    setIsOpen(false);
+    setQuery('');
+    setResults([]);
+  }, []);
+
+  // Focus input when expanded
+  useEffect(() => {
+    if (isExpanded && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isExpanded]);
+
   return (
     <div className="relative z-[10000]">
-      <div className="relative" ref={searchContainerRef}>
+      {/* Mobile: Magnifying glass button */}
+      <button
+        onClick={() => setIsExpanded(true)}
+        className={`md:hidden p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors ${isExpanded ? 'hidden' : 'block'}`}
+        aria-label="Open search"
+      >
+        <svg
+          className="w-5 h-5 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </button>
+
+      {/* Mobile: Expanded search overlay */}
+      {isExpanded && (
+        <div className="md:hidden fixed inset-0 z-[10001] bg-primary-900/50 backdrop-blur-sm">
+          <div className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="relative flex-1" ref={searchContainerRef}>
+                <input
+                  ref={inputRef}
+                  id="search-input-mobile"
+                  type="text"
+                  value={query}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  onFocus={() => query && setIsOpen(true)}
+                  placeholder="Search documentation..."
+                  className="w-full px-4 py-3 pl-10 pr-4 text-base text-gray-900 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-300 shadow-lg"
+                />
+                <svg
+                  className="absolute left-3 top-3.5 w-5 h-5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <button
+                onClick={closeMobileSearch}
+                className="p-2 text-white hover:text-primary-200 transition-colors"
+                aria-label="Close search"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Mobile search results */}
+            {isOpen && results.length > 0 && (
+              <div className="mt-4 bg-white rounded-xl shadow-xl max-h-[70vh] overflow-y-auto">
+                <div className="p-2">
+                  {results.map((result, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        handleSelectResult(result.href);
+                        closeMobileSearch();
+                      }}
+                      className="w-full text-left px-4 py-3 hover:bg-primary-50 rounded-lg transition-colors group"
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <svg className="w-4 h-4 text-primary-400 group-hover:text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span className="font-semibold text-gray-900 group-hover:text-primary-700">
+                          {result.title}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-500 line-clamp-2 pl-6">
+                        {result.excerpt}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Mobile no results */}
+            {isOpen && query && results.length === 0 && (
+              <div className="mt-4 bg-white rounded-xl shadow-xl px-4 py-6 text-center">
+                <svg className="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <p className="text-sm text-gray-600">No results found for &quot;{query}&quot;</p>
+                <p className="text-xs text-gray-400 mt-1">Try adjusting your search terms</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Desktop: Full search bar */}
+      <div className="hidden md:block relative" ref={!isExpanded ? searchContainerRef : undefined}>
         <input
           id="search-input"
           type="text"
@@ -146,25 +270,25 @@ export function Search() {
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-        <div className="absolute right-3 top-2.5 hidden sm:flex items-center gap-1">
+        <div className="absolute right-3 top-2.5 flex items-center gap-1">
           <kbd className="px-1.5 py-0.5 text-xs font-mono bg-gray-100 text-gray-500 rounded">⌘</kbd>
           <kbd className="px-1.5 py-0.5 text-xs font-mono bg-gray-100 text-gray-500 rounded">K</kbd>
         </div>
       </div>
 
-      {/* Search Results Dropdown */}
-      {isOpen && results.length > 0 && (
+      {/* Desktop: Search Results Dropdown */}
+      {isOpen && results.length > 0 && !isExpanded && (
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-[9998]"
+            className="hidden md:block fixed inset-0 z-[9998]"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Results */}
-          <div 
+          <div
             ref={dropdownRef}
-            className="fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] max-h-96 overflow-y-auto"
+            className="hidden md:block fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] max-h-96 overflow-y-auto"
             style={{
               top: `${dropdownPosition.top}px`,
               left: `${dropdownPosition.left}px`,
@@ -196,11 +320,11 @@ export function Search() {
         </>
       )}
 
-      {/* No Results */}
-      {isOpen && query && results.length === 0 && (
-        <div 
+      {/* Desktop: No Results */}
+      {isOpen && query && results.length === 0 && !isExpanded && (
+        <div
           ref={dropdownRef}
-          className="fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] px-4 py-6 text-center"
+          className="hidden md:block fixed bg-white border border-gray-200 rounded-xl shadow-xl z-[9999] px-4 py-6 text-center"
           style={{
             top: `${dropdownPosition.top}px`,
             left: `${dropdownPosition.left}px`,
