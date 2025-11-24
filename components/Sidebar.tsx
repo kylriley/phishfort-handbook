@@ -75,14 +75,21 @@ function NavItemComponent({ item, depth = 0, pageHeadings }: { item: NavItem; de
       {showHeadings && (
         <div className="mt-1 space-y-0.5 ml-2">
           {pageHeadings.map((heading, index) => (
-            <Link
+            <a
               key={index}
-              href={`${item.href}#${heading.id}`}
-              className="block py-1.5 px-3 text-xs text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded transition-colors no-underline"
+              href={`#${heading.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById(heading.id);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="block py-1.5 px-3 text-xs text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded transition-colors no-underline cursor-pointer"
               style={{ paddingLeft: `${paddingLeft + 8}px` }}
             >
               {heading.title}
-            </Link>
+            </a>
           ))}
         </div>
       )}
