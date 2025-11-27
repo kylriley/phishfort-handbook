@@ -54,19 +54,22 @@
 
   th {
     @apply bg-primary-50 border border-primary-100 px-2 py-2 md:px-4 md:py-3 text-left font-semibold text-primary-800;
-    word-break: break-word;
+    word-break: break-all;
     overflow-wrap: anywhere;
   }
 
   td {
     @apply border border-gray-200 px-2 py-2 md:px-4 md:py-3 bg-white;
-    word-break: break-word;
+    word-break: break-all;
     overflow-wrap: anywhere;
   }
 
-  /* Allow breaking at / characters by inserting zero-width space after them */
-  td, th {
-    word-wrap: break-word;
+  /* Desktop: break on words, Mobile: break on letters */
+  @media (min-width: 768px) {
+    th, td {
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
   }
 
   code {

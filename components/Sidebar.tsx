@@ -156,7 +156,7 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:sticky left-0 top-[60px] lg:top-0 h-[calc(100vh-60px)] lg:h-auto lg:max-h-screen lg:self-stretch w-64 bg-slate-50 border-r border-gray-200
+          fixed lg:fixed left-0 top-[60px] h-[calc(100vh-60px)] w-64 bg-slate-50 border-r border-gray-200
           overflow-y-auto z-40 lg:z-20 transition-transform lg:flex-shrink-0 shadow-sm
           ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}

@@ -36,7 +36,7 @@ export function ClientLayout({ children, basePath }: ClientLayoutProps) {
         <Sidebar isMobileOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-slate-50">
+        <main className="flex-1 overflow-y-auto bg-slate-50 lg:ml-64">
           <div className="max-w-4xl mx-auto px-4 pt-6 pb-2 md:px-6 lg:px-8 md:pt-8">
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 md:p-8 mb-4">
               {children}
